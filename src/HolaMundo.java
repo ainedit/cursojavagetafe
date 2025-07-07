@@ -3,7 +3,7 @@ public class HolaMundo {
 
 	public static void main(String[] args) {
 
-		System.out.println("Hola Getafe Jose Luis");
+		System.out.println("Hola Getafe Jose Luis 2");
 
 		//Comentario de línea
 				
