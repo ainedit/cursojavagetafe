@@ -13,3 +13,15 @@ Crea un programa que cuente cuántas vocales (a, e, i, o, u) tiene un String. Ig
 Ejercicio 4
 ==============================
 Escribe un programa que reciba un String con varias palabras separadas por espacios y determine cuál es la palabra más larga.
+
+Ejercicio 5 - Validar un email
+==============================
+Preguntar al usuario por un email
+Le diremos si es valido o no y si no lo es le diremos el motivo
+
+Validaciones: 
++ Que no tenga espacios en blanco
++ Que tenga @, solo 1
++ Que después de la @ tenga al menos un punto
++ Que entre la @ y el punto a su derecha haya una separación de dos caracateres
++ Que despues del último punto haya entre 2 y 6 caracteres
