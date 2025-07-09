@@ -1,0 +1,34 @@
+============================
+Ruleta
+============================
+
+Facil
+============================
+saldo = 500
+
+¿Por qué numero quieres apostar? (0-36) 
+Si es otro numero numero se vuelve a formular la pregunta
+
+¿Cuánto dinero quieres apostar? 
+Si el importe de la apuesta es > que el saldo disponible por el usuario,
+se notifica y se vuelve a formular la pregunta
+
+De manera aleatoria generar un nº entre 0 y 36
+
+Si el numero apostado es = al nº aleatorio, se multiplica lo apostado *36 y se suma al saldo no apostado
+Si no lo es le restamos del saldo la cantidad apostada
+
+Si tiene saldo le perguntamos ¿Quieres seguir jugando? si dice que no le indicamos el saldo con el que se va y si no tiene saldo le indicamos que se ha quedado sin dinero.
+
+
+Dificil
+============================
+Preguntar a qué juego quiere jugar (Número,Par/Impar,Bloques)
+
++ Si la apuesta es par/impar y se gana, se multiplica lo apostado *2
++ Si la apuesta es Bloques y se gana, se multiplica lo apostado *5 (1-12,13-24,25-36)
+
+
+
+
+

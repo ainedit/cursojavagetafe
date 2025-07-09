@@ -1,0 +1,15 @@
+Ejercicio 1
+==============================
+Escribe un programa que reciba un String y devuelva el texto invertido.
+
+Ejercicio 2
+==============================
+Escribe un programa que determine si un String ingresado por el usuario es un palíndromo (se lee igual de izquierda a derecha que de derecha a izquierda, ignorando mayúsculas y espacios).
+
+Ejercicio 3
+==============================
+Crea un programa que cuente cuántas vocales (a, e, i, o, u) tiene un String. Ignora las mayúsculas y minúsculas.
+
+Ejercicio 4
+==============================
+Escribe un programa que reciba un String con varias palabras separadas por espacios y determine cuál es la palabra más larga.

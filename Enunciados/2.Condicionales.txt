@@ -1,0 +1,64 @@
+EJERCICIO 1
+===============================================
++ Crear paquete ejercicios dentro de condicionales
++ Clase donde se solicite un número y se diga si el número es par o impar
+
+EJERCICIO 2
+===============================================
++ Declarar la variables asignatura de tipo String, nombreAlumno de tipo String y nota de tipo int 
++ Inicializar las variables con valores inventados
++ El resultado a mostrar sería: El alumno Juan en la asignatura Matemáticas tiene un Notable
+
+0 <5 suspenso
+5 <7 aprobado
+7 <9 notable
+9-10 sobresaliente
+
+EJERCICIO 3
+===============================================
+Pedir dos numeros y pedir la operación que se quiere realizar ("suma o +", resta o - ,*,/)  nextLine
+
+Mostrar el resultado de la operación con los dos números
+
+EJERCICIO 4
+===============================================
+Pintar menu
+1. Pintar Cuadrado
+2. Validar email
+3. Añadir Alumno
+4. Salir
+
+Elige una opción
+
+Se pide la opción por teclado, dependiendo de la opción introducida le indicamos la que ha seleccionado, si selecciona la 4 le decimos "Adios!" y si no es ninguna de las que existe que se ha equivocado
+
+
+
+EJERCICIO 5
+===============================================
+Herramienta para calcular el precio de una llamada
+Cuando se realiza una llamada, el cobro es por el tiempo que esta dura, 
+de tal forma que:
+
++ los primeros cinco minutos cuestan 1€, 
++ los siguientes 3 minutos, 80 céntimos, 
++ los siguientes dos minutos a 70 céntimos 
++ y a partir del décimo minuto, 50 céntimos cada minuto.
+
+Se carga un impuesto del 3% cuando es domingo, 
+y si es otro día, 
+	en turno de mañana 15% (6-12)
+	y en turno de tarde 10%. (12-23)
+	y en turno de noche -10%. (23-6)
+
+Solicitar tiempo de llamada, dia de la semana y hora y calcular el coste de la llamada
+
+
+Acciones:
+Crear una condición que indique que mientras la cantidad de minutos sea mayor a 0 y menor a 5 el coste sea 1 euro. 
+Crear una condición que indique que si la llamada dura más de 5 minutos y menos de 8, el costo de los minutos 6, 7 y 8 sea de 80 céntimos.
+Crear una condición que indique que si la llamada dura más de 8 minutos y menos y hasta 10, el costo de los minutos 9 y 10 sea de 70 céntimos.
+Crear una condición que indique que si la llamada dura más de 10 minutos cada minuto valga 50 céntimos.
+Crear una condición que indique que si la llamada se hace el día domingo la llamada tenga un impuesto derl 3%
+Crear una condición que indique que si la llamada se hace en un día diferente al domingo se aplique:
+15% turno de 06:00am a 12:00m; 10% turno de 12:00m a 23:00pm; -10% turno de 23:00am a 05:59am; 

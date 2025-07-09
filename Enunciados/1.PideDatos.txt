@@ -1,0 +1,9 @@
++ Crear el paquete ejercicios dentro del paquete inicio
++ Dentro del paquete ejercicios crear la clase PideDatos con el método main
++ Solicitar dirección: 
+	- nombre de calle, 
+	- número 
+	- población
++ Mostrar los datos recogidos por consola
++ Mostrar: "La calle es grande ": <true o false>, si el número de la calle es mayor de 100 "true" en caso contrario "false"
++ Generar número aleatorio e indicar el numero que se genera y si es > de 0,5 (poniendo true o false)

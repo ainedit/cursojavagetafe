@@ -1,0 +1,55 @@
+EJERCICIOS BUCLES
+==========================================================
+1. Mostrar los numeros pares del 0 al 100
+
+2. Mostrar los pares del 2 al 100 y al mismo tiempo los impares del 99 al 1
+2-99
+4-97
+6-95
+
+3. Pedir 10 numeros --> Indicar cuantos son multiplos de 3 y cuantos multiplos de 5
+
+4. Mostrar todas las tablas de multiplicar hasta el número que solicites al usuario
+
+5. Solicitar por consola el numero de alumnos de un aula. 
+Pedir para cada alumno su nota
+Indicar la nota media de todos los alumnos del aula.
+
+6. Conjetura Collatz
+Solicitar un numero:
++Si el numero es par, se divide entre dos
++Si es impar se multiplicar por 3 y se le suma 1
+se repite hasta que el valor del numero es 1
+
+7. Solicitar por consola el numero de números de la serie 
+de Fibonacci que se quieren mostrar
+Serie de Fibonacci: 0,1,1,2,3,5,8,13,21,34,55,....
+
+8. Numero tenistas en el top 10 --> 
++ Pedir por teclado la cantidad de tenistas que se apuntan a un torneo, 
++ por cada uno de ellos preguntar en que puesto de la ATP se encuentran. 
++ Indicar cuantos tenistas estarían entre los diez primeros.
+
+
+9. Pintar el menu hasta que se puse la opción de salir. 
+
+	1. Pintar Cuadrado
+	2. Validar email
+	3. Añadir Alumno
+	4. Salir
+
+	Elige una opción
+
+Si se pulsa la opción 1, solicitar el tamaño de los lados de un cuadrado y pintar el cuadrado de la siguiente manera:
+Por ejemplo si el tamaño es 4:
+
+		****
+		*  *
+		*  *
+		****
+
+
+
+
+
+
