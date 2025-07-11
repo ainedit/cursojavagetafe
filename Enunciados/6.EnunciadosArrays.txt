@@ -1,0 +1,6 @@
+Solicitar el número de alumnos que hay en una clase
+Por cada alumno pedir su nota y la guardas en una posición del array
+
+Con la información almacenada en el array indicar:
++ cuantos alumnos han aprobado
++ nota media de todos los alumnos
