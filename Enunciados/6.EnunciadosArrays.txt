@@ -4,3 +4,14 @@ Por cada alumno pedir su nota y la guardas en una posición del array
 Con la información almacenada en el array indicar:
 + cuantos alumnos han aprobado
 + nota media de todos los alumnos
+
+
+Ejercicio Colegio-Alumnos
+==============================================================
+Colegio con 2 aulas y 3 puestos en cada aula
+
+1. Insertar Alumnos -> Va a solicitar el nombre de los alumnos para las aulas que tengan puestos disponibles
+2. Mostrar Alumnos -> Muestra los alumnos por aula, si un puesto no tiene alumno, mostrar (vacio)
+3. Buscar Alumno -> Solicitar texto, Ju, mostrar aula y puesto en el que se encuentra el alumno que contenga el texto introducido
+4. Borrar Alumno -> Solcitar nombre, y se borra a todos los alumnos que tengan ese nombre.
+5. Salir
