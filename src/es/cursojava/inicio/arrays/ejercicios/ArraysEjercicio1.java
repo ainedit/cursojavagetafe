@@ -25,6 +25,7 @@ public class ArraysEjercicio1 {
 		
 		int contadorAprobados = 0;
 		double totalNotas = 0;
+		
 		for ( double nota : notas ) {
 			//System.out.println(nota);
 			if (nota>=5) {

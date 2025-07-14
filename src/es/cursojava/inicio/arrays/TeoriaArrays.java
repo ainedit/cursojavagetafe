@@ -8,6 +8,7 @@ public class TeoriaArrays {
 	public static void main(String[] args) {
 		
 		String [] colores = new String [4];
+		
 		colores[0] = "Azul";
 		colores[1] = "Verde";
 		colores[colores.length-1] = "Naranja";
