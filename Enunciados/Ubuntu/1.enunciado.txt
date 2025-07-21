@@ -1,0 +1,6 @@
+-Crear el directorio books en el home del usuario ubuntu
+-Pasar el fichero file al directorio books 
+-Hay que ver de que libro se trata
+-Modificar el contenido del fichero añadiendo 1 linea al principio y lo guardais
+-Visualizar el cambio
+-Descargar el fichero a vuestra máquina con el nombre del libro y la extensión .txt (no cambiar el nombre en la MV)

@@ -1,0 +1,7 @@
+- crear en el home del usuario ubuntu el directorio ejerciciosJava
+- crear en el home del usuario ubuntu el fichero ejercicio1.txt
+- mover el fichero ejercicio1.txt al directorio ejerciciosJava pero con el nombnre Ejercicio1.java
+- escribir el código en java para que pinte vuestro nombre (fácil)
+- escribir el código en java para que pinte el valor que le pasais como parámetro
+- compilar
+- ejecutar
