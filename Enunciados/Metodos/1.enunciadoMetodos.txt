@@ -9,29 +9,35 @@ En una clase
 Ejercicio 2
 ====================================================================================
 En una clase 
-+ Escribe un método que reciba un array de Strings con nombres y devuelva el número de nombres que empiecen por A y contengan una t
-+ Desde el main generar el array con los nombres y llamar al método anterior, indicar cuantos nombres cumplen esa condición-
-
-
-
++ Escribe un método que reciba un array de Strings con nombres y 
+devuelva el número de nombres que empiecen por A y contengan una t
++ Desde el main generar el array con los nombres y llamar al método anterior,
+indicar cuantos nombres cumplen esa condición.
 
 Ejercicio 3
 ====================================================================================
-Escribe un único método en Java que sirva para realizar los siguientes cálculos sobre un rectángulo a partir de la base y la altura proporcionadas por el usuario:
+Escribe un único método en Java que sirva para realizar los siguientes cálculos 
+sobre un rectángulo a partir de la base y la altura proporcionadas por el usuario:
 
 + Calcular el área del rectángulo. Area=base×altura
 + Calcular el perímetro del rectángulo. Perímetro=2×(base+altura)
-+ Calcular la diagonal del rectángulo (utilizando el teorema de Pitágoras). Diagonal= (raíz cuadrada)base2+altura2
++ Calcular la diagonal del rectángulo (utilizando el teorema de Pitágoras). 
+Diagonal= (raíz cuadrada)base2+altura2
  
-​
-Devolver todos los datos en un único return
+​Devolver todos los datos en un único return
+
+En el main pintar la información devuelta por el método
 
 Ejercicio 4
 ====================================================================================
 EN la clase Utilidades crear métodos:
 
-pintaMenu le vamos a pasar un array de Strings y nos va a mostrar todas las opciones que vengan en el array y al final va a pintar "Introduce una opción"
++ pintaMenu le vamos a pasar un array de Strings y nos va a mostrar 
+todas las opciones que vengan en el array 
+y al final va a pintar "Introduce una opción"
 
-pintaMenu le vamos a pasar un array de Strings y un String texto. Nos va a mostrar todas las opciones que vengan en el array y al final nos va pintar el contenido de la variable texto
++ pintaMenu le vamos a pasar un array de Strings y un String texto. 
+Nos va a mostrar todas las opciones que vengan en el array 
+y al final nos va pintar el contenido de la variable texto
 
 
