@@ -20,7 +20,7 @@ public class TeoriaArrays {
 		int [] numeros = {7,4,2,4,5,29};
 		System.out.println(Arrays.toString(numeros));
 		
-		Persona persona = new Persona();
+		Persona persona = new Persona("");
 		System.out.println(persona);
 
 	}
