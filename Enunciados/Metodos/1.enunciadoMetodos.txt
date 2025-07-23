@@ -40,4 +40,13 @@ y al final va a pintar "Introduce una opción"
 Nos va a mostrar todas las opciones que vengan en el array 
 y al final nos va pintar el contenido de la variable texto
 
++ pideDatoNumerico al que le pasamos un String denominado Texto. 
+El método tiene que pintar el texto que le pasamos, recoger un dato numérico (int) 
+por la consola y devolver el dato que se ha introducido
+
++ pideDatoCadena al que le pasamos un String denominado Texto. 
+El método tiene que pintar el texto que le pasamos, recoger un dato (String)  
+por la consola y devolver el dato que se ha introducido
+
+
 
