@@ -30,7 +30,7 @@ En el main pintar la información devuelta por el método
 
 Ejercicio 4
 ====================================================================================
-EN la clase Utilidades crear métodos:
+En la clase Utilidades crear métodos:
 
 + pintaMenu le vamos a pasar un array de Strings y nos va a mostrar 
 todas las opciones que vengan en el array 
