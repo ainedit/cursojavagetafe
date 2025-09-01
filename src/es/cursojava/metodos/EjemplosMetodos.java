@@ -4,12 +4,13 @@ import es.cursojava.inicio.arrays.Persona;
 import es.cursojava.utils.Utilidades;
 
 public class EjemplosMetodos {
-
 	
 	public static void main(String[] args) {
-		
 		int edad = Utilidades.calcularEdad(2001);
 		System.out.println(edad);
+		
+		int num = Integer.parseInt("7");
+		double decimal = Double.parseDouble("7.5");
 		
 		Metodos.saludar("Jose Luis");
 		
@@ -54,6 +55,15 @@ public class EjemplosMetodos {
 		
 		//return nombre;
 	}
+	
+	private static void metodo2 (String nombre,int numero) {
+		System.out.println(nombre);//Juan
+		nombre = "María";
+		System.out.println(nombre);//Maria
+		
+		//return nombre;
+	}
+	
 	
 	public static void metodo3 (int numero) {
 		System.out.println(numero);
