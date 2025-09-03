@@ -17,11 +17,47 @@ public class Persona {
 		}
 	}
 	
+	//GETTER Y SETTER
 	public String getNombre () {
 		return this.nombre;
 	}
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
-		
 	}
+
+	public String getApellidos() {
+		return apellidos;
+	}
+
+	public void setApellidos(String apellidos) {
+		this.apellidos = apellidos;
+	}
+
+	public String getDni() {
+		return dni;
+	}
+
+	public void setDni(String dni) {
+		this.dni = dni;
+	}
+
+	public int getEdad() {
+		return edad;
+	}
+
+	public void setEdad(int edad) {
+		this.edad = edad;
+	}
+	
+	
+	
 }
+
+
+
+
+
+
+
+
+

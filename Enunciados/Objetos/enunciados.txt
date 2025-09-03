@@ -1,0 +1,18 @@
+crear clase Alumno con los atributos
++nombre
++dni
++notaMedia
++asignaturas
+
+Crear método estudiar(){
+Debe mostrar:
+"El estudiante <nombre> tiene las asignaturas …
+y si notaMedia<5 ha estudiado poco
+  si notaMedia>5 ha estudiado mucho
+  si notaMedia>9 es un genio"
+
+}
+
+Crear clase Colegio en el main crear 3 alumnos y ponerlos a estudiar
+
+crear método estudiarAlumnos al que le pasais los 3 alumnos y se pone a todos a estudiar
