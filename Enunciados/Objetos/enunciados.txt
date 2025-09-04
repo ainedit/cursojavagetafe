@@ -1,3 +1,5 @@
+Ejercicio 1
+=============================================
 crear clase Alumno con los atributos
 +nombre
 +dni
@@ -16,3 +18,45 @@ y si notaMedia<5 ha estudiado poco
 Crear clase Colegio en el main crear 3 alumnos y ponerlos a estudiar
 
 crear método estudiarAlumnos al que le pasais los 3 alumnos y se pone a todos a estudiar
+
+Parte 2
+----------------------------
+Crear 2 constructores en la clase Alumno:
++ 1 para inicializar nombre y dni
++ 1 para iniciarliar todas las variables
+
+Crear en la clase Colegio 2 alumnos usando estos constructores y ponerlos a estudiar
+
+Ejercicio 2
+=============================================
+Crea un paquete llamado tienda en ejercicios.
+
+Dentro del paquete tienda, crea una clase Producto con los siguientes atributos privados:
+
++String nombre
+
++double precio
+
++int cantidad
+
+Implementa un constructor que reciba los tres atributos.
+
+Añade los siguientes métodos en Producto:
+
++ mostrarInfo() → muestra en consola los datos del producto.
+
++ calcularValorTotal() → devuelve el valor total (precio * cantidad).
+
+Crea una clase auxiliar llamada UtilidadesTienda con un método estático:
+
++ calcularValorInventario(Producto[] productos) → recibe un array de productos y devuelve el valor total del inventario.
+
+En una clase llamada Tienda con main:
+
+Crea al menos 3 objetos Producto usando el constructor.
+
+Guarda los objetos en un array de productos.
+
+Muestra la información de cada producto.
+
+Calcula y muestra el valor total del inventario usando el método estático.
