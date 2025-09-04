@@ -6,7 +6,7 @@ public class Alumno {
 	static int numero;
 	private String nombre;
 	private String dni;
-	private double notaMedia;
+	private double notaMedia=10;
 	private String[] asignaturas;
 	
 	public String getNombre() {
@@ -34,7 +34,12 @@ public class Alumno {
 		this.asignaturas = asignaturas;
 	}
 	
+	public void metodo1() {
+		
+	}
+	
 	public void estudiar () {
+
 		System.out.println("El estudiante "+ nombre +
 				" tiene las asignaturas "+Arrays.toString(asignaturas));
 		

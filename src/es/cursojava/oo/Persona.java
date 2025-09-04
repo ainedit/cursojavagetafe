@@ -7,6 +7,25 @@ public class Persona {
 	private String dni;
 	private int edad;
 	
+	//Constructores
+	public Persona (){
+		
+	}
+	
+	public Persona(String nombre, String apellidos, 
+			String dni, int edad) {
+		this.nombre = nombre;
+		this.apellidos = apellidos;
+		this.dni = dni;
+		this.edad = edad;
+	}
+
+
+//	
+	public Persona (String dni){
+		this.dni = dni;
+	}
+	
 	//Método de instancia NO ESTÁTICO
 	public void correr() {
 		System.out.print (nombre + " está corriendo");
@@ -37,9 +56,9 @@ public class Persona {
 		return dni;
 	}
 
-	public void setDni(String dni) {
-		this.dni = dni;
-	}
+//	public void setDni(String dni) {
+//		this.dni = dni;
+//	}
 
 	public int getEdad() {
 		return edad;

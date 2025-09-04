@@ -2,8 +2,12 @@ package es.cursojava.oo;
 
 public class Colegio {
 
+	static Alumno alumnoEstático;
 	
 	public static void main(String[] args) {
+		
+		alumnoEstático = new Alumno();
+		alumnoEstático.setNombre("Estático"); 
 		
 		Alumno alumno1 = new Alumno();
 		alumno1.setNombre("Alumno1");
