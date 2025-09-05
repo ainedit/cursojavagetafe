@@ -5,6 +5,9 @@ public class Producto {
 	private double precio;
 	private int cantidad;
 	
+	public Producto() {
+		
+	}
 	public Producto(String nombre, double precio, int cantidad) {
 		super();
 		this.nombre = nombre;
