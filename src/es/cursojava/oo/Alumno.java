@@ -3,12 +3,32 @@ package es.cursojava.oo;
 import java.util.Arrays;
 
 public class Alumno {
+	//Variables de instancia
 	static int numero;
 	private String nombre;
 	private String dni;
 	private double notaMedia=10;
 	private String[] asignaturas;
 	
+	//Constructores
+	public Alumno() {
+		
+	}
+	
+	public Alumno(String nombre, String dni) {
+		this.nombre = nombre;
+		this.dni = dni;
+	}
+	
+	public Alumno(String nombre, String dni, double notaMedia, String[] asignaturas) {
+		super();
+		this.nombre = nombre;
+		this.dni = dni;
+		this.notaMedia = notaMedia;
+		this.asignaturas = asignaturas;
+	}
+
+	//Métodos GET y SET
 	public String getNombre() {
 		return nombre;
 	}
@@ -38,6 +58,8 @@ public class Alumno {
 		
 	}
 	
+	
+	//Métodos de instancia
 	public void estudiar () {
 
 		System.out.println("El estudiante "+ nombre +

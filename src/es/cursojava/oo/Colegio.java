@@ -33,39 +33,43 @@ public class Colegio {
 //		System.out.println(alumno4);
 //		System.out.println(alumno2);
 		
-		alumno1.estudiar();
-		alumno2.estudiar();
-		alumno3.estudiar();
+//		alumno1.estudiar();
+//		alumno2.estudiar();
+//		alumno3.estudiar();
 		
-		Alumno[] alumnos = {alumno1,alumno2,alumno3};
+		Alumno alumno4 = new Alumno("Alumno4", "4444D");
+		alumno4.setNotaMedia(8.0);
+		alumno4.setAsignaturas(new String[] {"Física","Química"});
+		
+		Alumno alumno5 = new Alumno("Alumno5", "5555E", 4, asignaturasAlumno);
+		
+		Alumno[] alumnos = {alumno1,alumno2,alumno3,alumno4,alumno5};
 		Colegio colegio = new Colegio();
 		colegio = new Colegio();
 		colegio.estudiarAlumnos(alumnos);
 		
 		
-		Alumno.numero = 3;
-		System.out.println(Alumno.numero);//3
-		alumno1.numero = 5;
-		System.out.println(Alumno.numero);//3 - 5
-		System.out.println(alumno1.numero);//5
-		System.out.println(alumno2.numero);//5
-		alumno3.numero = 10;
-		System.out.println(Alumno.numero);
-		System.out.println(alumno1.numero);
-		System.out.println(alumno3.numero);
-		System.out.println(alumno2.numero);
-		
-	}
-
-	public static void metodo1() {
-
+//		Alumno.numero = 3;
+//		System.out.println(Alumno.numero);//3
+//		alumno1.numero = 5;
+//		System.out.println(Alumno.numero);//3 - 5
+//		System.out.println(alumno1.numero);//5
+//		System.out.println(alumno2.numero);//5
+//		alumno3.numero = 10;
+//		System.out.println(Alumno.numero);
+//		System.out.println(alumno1.numero);
+//		System.out.println(alumno3.numero);
+//		System.out.println(alumno2.numero);
 		
 	}
 	
 	
 	public void estudiarAlumnos (Alumno[] alumnos) {
-
+		String asignatura = "";
 		for (Alumno alumno : alumnos) {
+			asignatura = alumno.getAsignaturas()[0];
+			System.out.println(alumno);
+			System.out.println(asignatura);
 			alumno.estudiar();
 		}
 		
