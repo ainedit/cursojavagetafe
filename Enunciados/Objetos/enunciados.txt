@@ -78,19 +78,16 @@ Clase Dirección
 
 Clase Biblioteca
 
-Atributos: nombre, direccion, libros (Suponemos que en la biblioteca caben 10 libros como mucho)
+Atributos: nombre, direccion, libros 
 
 Métodos:
-
 + agregarLibro(Libro libro) para añadir un libro.
-
 + mostrarLibros() para mostrar todos los libros.
-
 + mostrarInfoBiblioteca() para mostrar dirección y libros.
 
 Clase Main
 
-Crea un objeto Biblioteca con una dirección.
+Crea un objeto Biblioteca (Suponemos que en la biblioteca caben 10 libros como mucho) con una dirección.
 Agrega al menos 3 libros.
 Muestra la información completa de la biblioteca.
 Muestra los libros que tiene la biblioteca
