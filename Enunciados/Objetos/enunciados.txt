@@ -92,7 +92,7 @@ Agrega al menos 3 libros.
 Muestra la información completa de la biblioteca.
 Muestra los libros que tiene la biblioteca
 
-Ejercicio 3
+Ejercicio 4
 =============================================
 Clase Boton
 	-color
@@ -128,15 +128,16 @@ Clase Maniqui
 	-metodos vestir y desvestir (solo se les puede vestir con pantalón y camisa o con vestido)
 	 
 	
-Clase Tienda
+Clase TiendaManiqui
 	-nombre
 	-Constructor
 
 	-main()
 		Llamo a 
 		1)abrirTienda()
-		2)mostrarEscaparate()
-		3)cerrarTienda()
+		2)vestirManiquies()
+		3)mostrarEscaparate()
+		4)cerrarTienda()
 		
 
 
