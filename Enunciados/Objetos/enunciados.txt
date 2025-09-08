@@ -91,3 +91,69 @@ Crea un objeto Biblioteca (Suponemos que en la biblioteca caben 10 libros como m
 Agrega al menos 3 libros.
 Muestra la información completa de la biblioteca.
 Muestra los libros que tiene la biblioteca
+
+Ejercicio 3
+=============================================
+Clase Boton
+	-color
+	-tamanio
+	-forma
+
+Clase Pantalon
+	-color
+	-precio
+	-talla
+	-Boton
+
+Clase Camisa
+	-color
+	-precio
+	-talla
+	-[]Boton
+
+Clase Vestido
+	-color
+	-precio
+	-talla
+
+Clase Maniqui
+	-id
+	-Pantalon
+	-Camisa
+	-Vestido
+	3 Constructores
+		+ vacio
+		+ (Pantalon, Camisa)
+		+ (Vestido)
+	-metodos vestir y desvestir (solo se les puede vestir con pantalón y camisa o con vestido)
+	 
+	
+Clase Tienda
+	-nombre
+	-Constructor
+
+	-main()
+		Llamo a 
+		1)abrirTienda()
+		2)mostrarEscaparate()
+		3)cerrarTienda()
+		
+
+
+	- abrirTienda() --> Donde se van a generar todos los objetos
+		+3 Objetos de tipo Maniqui (2 vestidos y 1 sin vestir)
+		
+	- vestirManiquies () --> vestir maniquies (solo vestirá aquellos que están completamente desnudos)
+
+	- mostrarEscaparate() --> Mostrar la información de cada maniqui y el precio total de la ropa que llevan
+
+	- cerrarTienda() --> Indicar que cierra la tienda y desvestir a los maniquies
+
+
+
+
+
+
+
+		
+
