@@ -5,6 +5,7 @@ public class Maniqui {
     private Camisa camisa;
     private Pantalon pantalon;
     private Vestido vestido;
+    private boolean estaVestido;
     
     public Maniqui(int id) {
         this.id = id;
@@ -14,11 +15,13 @@ public class Maniqui {
         this.id = id;
         this.camisa = camisa;
         this.pantalon = pantalon;
+        estaVestido = true;
     }
 
     public Maniqui(int id, Vestido vestido) {
         this.id = id;
         this.vestido = vestido;
+        estaVestido = true;
     }
 
     public int getId() {
@@ -49,21 +52,28 @@ public class Maniqui {
         this.vestido = vestido;
     }
     
-    public void desvestir () {
+    public boolean isEstaVestido() {
+		return estaVestido;
+	}
+
+	public void desvestir () {
     	this.camisa = null;
     	this.vestido = null;
     	this.pantalon= null;
+    	estaVestido = false;
     }
 
     public void vestir(Pantalon pantalon, Camisa camisa) {
     	desvestir();
     	this.camisa = camisa;
     	this.pantalon = pantalon;
+    	estaVestido = true;
     }
     
     public void vestir(Vestido vestido) {
     	desvestir();
     	this.vestido = vestido;
+    	estaVestido = true;
     }
 }
 
