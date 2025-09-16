@@ -17,7 +17,7 @@
   </appender>
 
   <!-- Nivel por defecto -->
-  <root level="info">
+  <root level="error">
     <appender-ref ref="STDOUT"/>
     <appender-ref ref="FILE"/>
   </root>
