@@ -11,7 +11,7 @@ Clase Paciente hereda de Persona
 	
 Clase Enfermo hereda de Persona 
 	+ enfermedad
-	+ comer() --> Paciente ... comiendo en la habitación
+	+ comer() --> Enfermo ... comiendo en la habitación
 
 Habitacion
 	+ numero
