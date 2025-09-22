@@ -10,7 +10,6 @@ public class Animal {
 //	}
 
 	public Animal(String nombre, double peso, long identificador) {
-		super();
 		this.nombre = nombre;
 		this.peso = peso;
 		this.identificador = identificador;

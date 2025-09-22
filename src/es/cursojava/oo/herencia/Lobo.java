@@ -21,6 +21,7 @@ public class Lobo extends Animal{
 		this.numColmillos = numColmillos;
 	}
 	
+	@Override
 	public void comer() {
 		System.out.println("El lobo está cazando");
 		super.comer();
