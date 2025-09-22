@@ -8,6 +8,13 @@ public class BandaMusica {
     }
     
     public static void main(String[] args) {
+//    	Instrumento instrumento = new Tambor("Tambor de Don Nicanor","Membrana","");
+////    	Tambor t2 = new Tambor("Tambor de Don Nicanor2","Membrana","");
+//////    	t2.aporrear(); 
+////    	instrumento = t2;
+//    	Tambor t = (Tambor)instrumento;
+//    	t.aporrear();
+    	
         BandaMusica banda = new BandaMusica("Filarmónica de Getafe");
         banda.empezarConcierto();
     }
@@ -21,7 +28,18 @@ public class BandaMusica {
     private void tocarConcierto(Instrumento[] instrumentos){
         System.out.println("\nEmpiezan a tocar");
         for (Instrumento instrumento : instrumentos) {
-            
+        	String clase = instrumento.getClass().getName();
+        	int ultimoPunto = clase.lastIndexOf(".");
+        	clase.substring(ultimoPunto+1);
+        	System.out.println(clase.substring(ultimoPunto+1));
+        	//if (clase.substring(ultimoPunto+1).equals("Tambor")) {
+        	if (instrumento instanceof Tambor) {	
+        	
+        		Tambor t = (Tambor)instrumento;
+        		t.aporrear();
+        	}
+//        	instrumento.tocar();
+//        	//instrumento.aporrear();
 
         }
         System.out.println("El concierto ha terminado");

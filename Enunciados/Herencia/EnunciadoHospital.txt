@@ -1,0 +1,69 @@
+Clase Persona
+	+ nombre
+	+ edad
+	
+	+ comer() sin nada
+	
+Clase Paciente hereda de Persona
+	+ sintomas [] String 
+	
+	+ comer() --> Paciente ... comiendo en la cafetería
+	
+Clase Enfermo hereda de Persona 
+	+ enfermedad
+	+ comer() --> Paciente ... comiendo en la habitación
+
+Habitacion
+	+ numero
+	+ Enfermo
+	
+EmpleadosHospital hereda de Persona
+	+ turno
+	
+	+ fichar() --> El empleado ... está fichando
+	+ comer() --> Empleado ... comiendo en el comedor
+	
+Enfermero hererda EmpleadosHospital
+	+ planta
+	
+	+ atenderPaciente() {}
+	
+
+Doctor hereda EmpleadosHospital
+	+ especialidad
+	
+	+ diagnosticarPaciente(Paciente)// 
+			Si el paciente está enfermo --> 1-10  
+			si > 8 el paciente está enfermo
+			devolver un objeto Enfermo 
+			
+			
+Hospital
+	+ nombre
+	+ habitaciones [2]
+	+ salaDeEspera [3]
+
+	+ main () 
+		--> abrirHospital()
+		--> ficharEmpleados()
+		--> horaDeComer()
+		--> pasarConsultas()
+		
+	+ abrirHospital()
+		+ 2 objetos de tipo habitación
+		+ 3 pacientes --> Meterlos en la sala de espera
+		+ 1 enfermero
+		+ 1 doctor
+		
+	+ ficharEmpleados ()
+		//Crear método que ponga a fichar a todos los empleados del hospital
+	+ horaDeComer()
+		//Crear método para poner a todas las personas del hospital a comer
+		
+	+ pasarConsultas()
+		//Por cada paciente que esté en la salaDeEspera el enfermero atiende al paciente
+			+ Sacar al paciente de la sala de espera
+			+ Asignar al paciente al doctor
+			+ Doctor diagnosticarPaciente
+			+ Si el paciente está enfermo --> ingresa (Se le asigna habitación) se le debe 					asignar una habitación vacía
+				- si no hay habitaciones disponibles se le indica
