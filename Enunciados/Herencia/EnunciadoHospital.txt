@@ -23,7 +23,7 @@ EmpleadosHospital hereda de Persona
 	+ fichar() --> El empleado ... está fichando
 	+ comer() --> Empleado ... comiendo en el comedor
 	
-Enfermero hererda EmpleadosHospital
+Enfermero hereda EmpleadosHospital
 	+ planta
 	
 	+ atenderPaciente() {}
