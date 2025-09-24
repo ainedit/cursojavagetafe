@@ -1,0 +1,8 @@
+Ejercicio 1
+=============================================
+Crear la tabla usuarios:
+
+Columnas:
+    id: Entero, clave primaria.
+    nombre: Cadena de caracteres (VARCHAR(50)), no nula.
+    email: Cadena de caracteres (VARCHAR(100)), no nula y única.
