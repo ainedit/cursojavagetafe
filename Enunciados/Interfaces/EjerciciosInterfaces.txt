@@ -1,0 +1,29 @@
+Limpiable
+limpiar()
+
+Desinfectable extends Limpiable
+desinfecta()
+
+Mueble
+ color
+
+Mesa hereda de Mueble
+ forma
+
+Silla hereda de Mueble
+ material
+
+
+Verdura
+	procedencia
+Lechuga
+	tipo
+JudiasVerdes
+	tieneVaina
+
+
+
+Main
+1 objeto de cada clase
+
+método para desinfectar objetos
