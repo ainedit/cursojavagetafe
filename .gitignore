@@ -10,6 +10,7 @@
 !Documentacion/
 !SQL/
 !resources/
+!EjerciciosSQL
 
 ## Ignorar todo dentro de src y bin, excepto sus contenidos
 src/*
@@ -27,3 +28,5 @@ SQL/*
 !SQL/** 
 resources/*   
 !resources/**
+EjerciciosSQL/*
+!EjerciciosSQL/**
