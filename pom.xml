@@ -32,6 +32,12 @@
 	    <version>1.5.18</version>
 	    <scope>compile</scope>
 	</dependency>
+	 <!-- https://mvnrepository.com/artifact/com.oracle.database.jdbc/ojdbc11 -->
+      <dependency>
+          <groupId>com.oracle.database.jdbc</groupId>
+          <artifactId>ojdbc11</artifactId>
+          <version>23.7.0.25.01</version>
+      </dependency>
   </dependencies>
   
   
