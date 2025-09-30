@@ -7,7 +7,7 @@
 -- - "fecha_registro": para fecha y hora usamos TIMESTAMP (contiene milisegundos y zona horaria)
 
 CREATE TABLE productos (
-  id              NUMBER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  id              NUMBER GENERATED ALWAYS AS IDENTITY,
   nombre          VARCHAR2(100)   NOT NULL,
   descripcion     VARCHAR2(500)   NULL,
   precio          NUMBER(8,2)     NOT NULL,
@@ -19,7 +19,7 @@ CREATE TABLE productos (
   CONSTRAINT ck_productos_precio_nonneg    CHECK (precio >= 0),
   CONSTRAINT ck_productos_descuento_0_100  CHECK (descuento BETWEEN 0 AND 100),
   CONSTRAINT ck_productos_estado_enum      CHECK (estado IN ('activo','inactivo'))
-  --CONSTRAINT pk_usuarios PRIMARY KEY (id)   -- nombre explícito
+  CONSTRAINT pk_usuarios PRIMARY KEY (id)   -- nombre explícito
 );
 
 --Alternativa crear la constraint después de la tabla
