@@ -11,6 +11,9 @@
 !SQL/
 !resources/
 !EjerciciosSQL
+!EjemplosSQL
+
+
 
 ## Ignorar todo dentro de src y bin, excepto sus contenidos
 src/*
@@ -30,3 +33,5 @@ resources/*
 !resources/**
 EjerciciosSQL/*
 !EjerciciosSQL/**
+EjemplosSQL/*
+!EjemplosSQL/**
