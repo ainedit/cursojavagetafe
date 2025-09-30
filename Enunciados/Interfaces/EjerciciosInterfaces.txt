@@ -1,3 +1,5 @@
+Ejercicio 1
+===============================================
 Limpiable
 limpiar()
 
@@ -27,3 +29,48 @@ Main
 1 objeto de cada clase
 
 método para desinfectar objetos
+
+Ejercicio 2 (1ª parte) --> Seguir imagen Interfaces.jpg
+===================================================================
+
+Ejercicio 2 (2ª parte)
+===================================================================
+Hacer que todos los objetos creados tengan id
+
++Interfaces
+===========
+Consultable → void select()//consultando por el id...
+Insertable → void insert()//insertando ... con id
+Updatable → void update()//actualizando ... con id
+Deletable extiende Insertable y Updatable → añade void delete()//BOrrando ... con id
+
+Hacer que los objetos de 1 clase puedan ser solo consultados
+Hacer que los objetos de 2 clases puedan ser consultados, insertados y actualizados
+Hacer que los objetos de 1 clases puedan ser consultados y borrados
+
+
+Hacer una clase  con los metodos estaticos, 
+a los que solo se les pasaran objetos que se puedan realizar las operaciones
+
+selectObject(...)
+insertObject(...)
+updateObject(...)
+deleteObject(...)
+
+En el main llamar a los métodos estáticos con los objetos correspondientes
+
+
+Ejercicio3: Sistema de Pago con Interfaces
+=========================================
+Imagina que estás desarrollando un sistema de pagos para una tienda en línea. Debes crear una interfaz Pago que defina un método procesarPago(double monto). Luego, crea tres clases que implementen esta interfaz:
+
+PagoTarjetaCredito: Simula un pago con tarjeta de crédito e imprime un mensaje confirmando el pago.
+PagoPayPal: Simula un pago con PayPal e imprime un mensaje confirmando el pago.
+PagoCriptomoneda: Simula un pago con criptomonedas e imprime un mensaje confirmando el pago.
+
+Además, debes crear una clase ProcesadorPagos que tenga un método realizarPago(Pago metodoPago, double monto) que reciba un objeto de tipo Pago y llame al método procesarPago().
+
+Requisitos:
+Usa una interfaz para definir el comportamiento común.
+Implementa tres clases con su propia versión de procesarPago.
+Implementa una clase principal (Main) para probar el sistema.
