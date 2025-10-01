@@ -1,0 +1,53 @@
+Contexto
+========================================================================
+La tienda TecnoHogar necesita persistir información de sus productos para ventas online 
+y control de stock. El equipo de datos trabajará con Oracle XE.
+
+Qué información hay que guardar de cada producto
+========================================================================
+Identificador interno del producto asignado automáticamente por el sistema (sirve para relacionar pedidos, incidencias, etc.).
+Nombre comercial del producto, que el usuario verá en la web.
+Categoría de negocio (por ejemplo: TECNOLOGIA, HOGAR, DEPORTE).
+Precio de venta en euros (puede ser 0 para campañas “gratis/bonificado”, pero nunca negativo).
+Stock disponible en unidades. Si no se indica, debe considerarse 0 por defecto.
+Fecha de alta en catálogo (si no se indica, se toma la fecha del sistema).
+Estado de publicación en la web: ACTIVO o INACTIVO. Por defecto, ACTIVO.
+Código SKU propio y único para integraciones (picking, facturación, marketplace).
+Usuario que creó el registro (guardar el usuario de base de datos que hace el alta).
+Tipo de IVA aplicable en porcentaje entero (por defecto 21).
+
+Reglas de negocio y de calidad de datos
+=============================================
+El identificador interno debe generarse automáticamente y ser clave primaria.
+Nombre y categoría son obligatorios.
+Precio ≥ 0 (no se permiten negativos).
+Stock no puede ser nulo (si no viene, usar 0).
+Estado solo puede ser ACTIVO o INACTIVO.
+SKU no se puede repetir en ningún producto.
+
+
+Tareas a realizar
+==============================================================
+1) Diseño y DDL inicial
+Crea la tabla que soporte todos los datos anteriores y aplique las reglas de negocio (identificador autogenerado, obligatorios, valores por defecto, comprobaciones, unicidad del SKU, etc.).
+Posteriormente, el negocio decide renombrar SKU → CODIGO_SKU y ampliar el tamaño del nombre para SEO.
+
+2) Carga inicial (DML — INSERT)
+Inserta 5 productos reales de ejemplo:
+2 de TECNOLOGIA (uno con fecha de alta “01/09/2025”).
+2 de HOGAR (uno con stock = 0).
+1 de DEPORTE con precio 0 y estado INACTIVO.
+Todos con CODIGO_SKU único.
+
+Prueba de calidad: intenta cargar un producto con precio negativo y documenta el error (debe rechazarlo).
+
+3) Mantenimiento de catálogo (DML — UPDATE)
+Incrementa el precio un 5% a los productos de TECNOLOGIA.
+Marca como INACTIVO los productos con stock = 0.
+Normaliza todas las fechas de alta al primer día del mes. 
+
+4) Depuración (DML — DELETE)
+Elimina de la tabla los productos INACTIVO con stock = 0 (no visibles y sin rotación).
+
+6) Consultas de verificación
+Top 3 productos por precio (descendente).
