@@ -5,11 +5,13 @@
 -- - id autoincremental: IDENTITY (Oracle 12c+).
 -- - "estado": Oracle no tiene ENUM; usamos VARCHAR2 + CHECK.
 -- - "fecha_registro": para fecha y hora usamos TIMESTAMP (contiene milisegundos y zona horaria)
+DROP TABLE productos;
 
 CREATE TABLE productos (
   id              NUMBER GENERATED ALWAYS AS IDENTITY,
   nombre          VARCHAR2(100)   NOT NULL,
   descripcion     VARCHAR2(500)   NULL,
+  marca			  VARCHAR2(50)    NOT NULL,
   precio          NUMBER(8,2)     NOT NULL,
   stock           NUMBER(10)      DEFAULT 0 NOT NULL,
   fecha_registro  TIMESTAMP       DEFAULT SYSTIMESTAMP NOT NULL,
@@ -40,7 +42,7 @@ ALTER TABLE productos ADD (proveedor VARCHAR2(100));  -- NULL permitido por defe
 -- Cambiar el tipo de datos de descripcion de TEXT a VARCHAR(500) para limitar la longitud a 500 caracteres.
 -- =========================================================
 
-ALTER TABLE productos MODIFY (descripcion_vc VARCHAR2(500));
+ALTER TABLE productos MODIFY (descripcion VARCHAR2(50));
 
 
 -- =========================================================
