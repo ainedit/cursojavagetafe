@@ -4,8 +4,8 @@ public final class Tarta extends Alimentos {
 
     private String sabor;
 
-    public Tarta(String nombre, int precio, String fechaCaducidad, String sabor) {
-        super(nombre, precio, fechaCaducidad);
+    public Tarta(int id, String nombre, int precio, String fechaCaducidad, String sabor) {
+        super(id, nombre, precio, fechaCaducidad);
         this.sabor = sabor;
     }
 

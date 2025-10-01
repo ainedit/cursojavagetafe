@@ -8,8 +8,8 @@ public abstract class ProductosElectronicos extends Producto implements Encendib
 
     private String fechaFabricacion;
 
-    public ProductosElectronicos(String nombre, int precio, String fechaFabricacion) {
-        super(nombre, precio);
+    public ProductosElectronicos(int id, String nombre, int precio, String fechaFabricacion) {
+        super(id, nombre, precio);
         this.fechaFabricacion = fechaFabricacion;
     }
 
@@ -20,6 +20,5 @@ public abstract class ProductosElectronicos extends Producto implements Encendib
     public void setFechaFabricacion(String fechaFabricacion) {
         this.fechaFabricacion = fechaFabricacion;
     }
-
 
 }

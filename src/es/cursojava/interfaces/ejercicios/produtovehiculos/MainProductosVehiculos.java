@@ -19,11 +19,11 @@ public class MainProductosVehiculos {
 
     private void ejercicio(){
 
-        Tarta tarta = new Tarta("Tarta1", 20, null, "Chocolate");
+        Tarta tarta = new Tarta(1,"Tarta1", 20, null, "Chocolate");
         Coche coche = new Coche("Marca1", "Modelo1", 2020, 200, "Diesel", 5, false);
-        Operable ordenador = new Ordenador("O1", 1000, "", null);
+        Operable ordenador = new Ordenador(1,"O1", 1000, "", null);
         Bicicleta bicicleta = new Bicicleta("","",2020,200,"Pedales",10);
-        Mechero mechero = new Mechero("Mechero1", 100, null);
+        Mechero mechero = new Mechero(1,"Mechero1", 100, null);
 
         coche.encender();
         ordenador.encender();

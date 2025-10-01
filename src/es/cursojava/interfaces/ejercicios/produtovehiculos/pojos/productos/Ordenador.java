@@ -6,8 +6,8 @@ public final class Ordenador extends ProductosElectronicos implements Operable {
 
     private String procesador;
 
-    public Ordenador(String nombre, int precio, String fechaFabricacion, String procesador) {
-        super(nombre, precio, fechaFabricacion);
+    public Ordenador(int id, String nombre, int precio, String fechaFabricacion, String procesador) {
+        super(id, nombre, precio, fechaFabricacion);
         this.procesador = procesador;
     }
 
@@ -38,7 +38,7 @@ public final class Ordenador extends ProductosElectronicos implements Operable {
 
     @Override
     public void select() {
-        System.out.println("Consultando el ordenador "+getNombre());
+        System.out.println("Consultando el ordenador "+getNombre() +" con id"+getId());
     }
 
     @Override
@@ -49,6 +49,8 @@ public final class Ordenador extends ProductosElectronicos implements Operable {
 
     @Override
     public void insert() {
+    	String insert ="INSERT INTO TABLE TB_ORDENADOR (\"procesador\",\"nombre\",\"precio\") "
+    			+ "VALUES ("+this.procesador+","+getNombre() +", "+getPrecio()+") )";
         System.out.println("Insertando ordenador");
         
     }

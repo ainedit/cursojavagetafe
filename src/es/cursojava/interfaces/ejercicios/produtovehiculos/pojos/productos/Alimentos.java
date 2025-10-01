@@ -6,8 +6,8 @@ public abstract class Alimentos extends Producto implements Insertable{
 
     private String fechaCaducidad;
 
-    public Alimentos(String nombre, int precio, String fechaCaducidad) {
-        super(nombre, precio);
+    public Alimentos(int id, String nombre, int precio, String fechaCaducidad) {
+        super(id, nombre, precio);
         this.fechaCaducidad = fechaCaducidad;
     }
 

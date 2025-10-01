@@ -19,7 +19,7 @@ public class UtilsBBDD {
 		obj.update();
 	}
 	
-	public static void consultarObjeto(Deletable obj) {
+	public static void deleteObjeto(Deletable obj) {
 		obj.delete();
 	}
 }
