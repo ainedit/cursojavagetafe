@@ -61,7 +61,7 @@ En el main llamar a los métodos estáticos con los objetos correspondientes
 
 
 Ejercicio3: Sistema de Pago con Interfaces
-=========================================
+==========================================
 Imagina que estás desarrollando un sistema de pagos para una tienda en línea. Debes crear una interfaz Pago que defina un método procesarPago(double monto). Luego, crea tres clases que implementen esta interfaz:
 
 PagoTarjetaCredito: Simula un pago con tarjeta de crédito e imprime un mensaje confirmando el pago.

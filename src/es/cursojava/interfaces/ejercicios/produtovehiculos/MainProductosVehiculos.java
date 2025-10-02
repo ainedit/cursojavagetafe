@@ -9,6 +9,9 @@ import es.cursojava.interfaces.ejercicios.produtovehiculos.pojos.productos.Orden
 import es.cursojava.interfaces.ejercicios.produtovehiculos.pojos.productos.Tarta;
 import es.cursojava.interfaces.ejercicios.produtovehiculos.pojos.vehiculos.Bicicleta;
 import es.cursojava.interfaces.ejercicios.produtovehiculos.pojos.vehiculos.Coche;
+import es.cursojava.interfaces.ejercicios.produtovehiculos.pojos.vehiculos.Vehiculo;
+import es.cursojava.interfaces.ejercicios.produtovehiculos.pojos.vehiculos.VehiculoMotorizado;
+import es.cursojava.interfaces.ejercicios.produtovehiculos.utils.UtilsBBDD;
 
 public class MainProductosVehiculos {
 
@@ -20,7 +23,7 @@ public class MainProductosVehiculos {
     private void ejercicio(){
 
         Tarta tarta = new Tarta(1,"Tarta1", 20, null, "Chocolate");
-        Coche coche = new Coche("Marca1", "Modelo1", 2020, 200, "Diesel", 5, false);
+        VehiculoMotorizado coche = new Coche("Marca1", "Modelo1", 2020, 200, "Diesel", 5, false);
         Operable ordenador = new Ordenador(1,"O1", 1000, "", null);
         Bicicleta bicicleta = new Bicicleta("","",2020,200,"Pedales",10);
         Mechero mechero = new Mechero(1,"Mechero1", 100, null);
@@ -33,11 +36,16 @@ public class MainProductosVehiculos {
         //operable(coche);
         consulta(coche);
         
-        
+        UtilsBBDD.deleteObjeto(coche);
         
     }
 
-
+    private static void encenderObjetos(Encendible [] arrayEncendible) {
+    	for (Encendible encendible : arrayEncendible) {
+			encendible.encender();
+		}
+    }
+    
     private void consulta (Consultable consulta){
         consulta.select();
     }
