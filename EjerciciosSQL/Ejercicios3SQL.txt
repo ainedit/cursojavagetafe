@@ -29,7 +29,8 @@ SKU no se puede repetir en ningún producto.
 Tareas a realizar
 ==============================================================
 1) Diseño y DDL inicial
-Crea la tabla que soporte todos los datos anteriores y aplique las reglas de negocio (identificador autogenerado, obligatorios, valores por defecto, comprobaciones, unicidad del SKU, etc.).
+Crea la tabla que soporte todos los datos anteriores y aplique las reglas de negocio 
+(identificador autogenerado, obligatorios, valores por defecto, comprobaciones, unicidad del SKU, etc.).
 Posteriormente, el negocio decide renombrar SKU → CODIGO_SKU y ampliar el tamaño del nombre para SEO.
 
 2) Carga inicial (DML — INSERT)

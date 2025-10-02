@@ -6,7 +6,7 @@ public class MainPagos {
     public static void main(String[] args) {
         PagoPaypal pagoPaypal = new PagoPaypal();
         PagoTarjetaCredito pagoTarjeta = new PagoTarjetaCredito();
-        PagoCriptomonedas pagoTransferencia = new PagoCriptomonedas();
+        PagoCriptomonedas pagoTransferencia = new PagoCriptomonedas("Bitcoin");
 
         MainPagos mp = new MainPagos();
         mp.metodoPago(new Pago[]{pagoPaypal,pagoTarjeta,pagoTransferencia});

@@ -1,10 +1,20 @@
 package es.cursojava.interfaces.ejercicios.pagos;
 
 public class PagoCriptomonedas implements Pago{
+	private String criptomoneda;
+	
+	public PagoCriptomonedas(String criptomoneda) {
+		super();
+		this.criptomoneda = criptomoneda;
+	}
 
-    @Override
+	@Override
     public void procesarPago(double monto) {
-        System.out.println("Realizando pago de "+monto+"€ con criptomonedas");
+		if(criptomoneda.equals("Bitcoin")) {
+			monto = monto* 0.00003;
+		}
+			
+        System.out.println("Realizando pago de "+monto+"bitcoins con criptomonedas");
         try {
             Thread.sleep(10000);
         } catch (InterruptedException e) {
@@ -13,5 +23,15 @@ public class PagoCriptomonedas implements Pago{
         }
         System.out.println("Pago Realizado correctamente");
     }
+
+	public String getCriptomoneda() {
+		return criptomoneda;
+	}
+
+	public void setCriptomoneda(String criptomoneda) {
+		this.criptomoneda = criptomoneda;
+	}
+	
+	
 
 }
