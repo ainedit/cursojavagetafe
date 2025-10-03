@@ -1,0 +1,36 @@
+Raza
+====
+[tipo]
+fuerza
+resistencia
+velocidad
+magia
+
+Criatura
+========
+nombre
+nivel o experiencia
+escudos		|
+armas		| --> serán colecciones (pensar si de clases o de interfaces)
+pociones	|
+puntosVida
+
+atacar() --> dado10 * nivel + puntos armas + (raza)
+defender() --> dado10 * nivel + puntos escudos + (raza)
+
+Juego
+================================
+Historia con n capítulos, en cada capitulo se darán una serie de eventos en los que el usuario puede decidir, 
+esos eventos podrán quitar puntos (una trampa) dar puntos (vida extra o poción) o que no pase nada, 
+una vez pasen los eventos el grupo se enfrentará al "monstruo final" del capítulo. 
+(Para lo que ocurre en los eventos se puede simular tirando un dado de 20)
+
+Se pasará al siguiente capítulo una vez el grupo de guerreros haya finalizado. 
+Si algún miembro del grupo sobrevive. Por cada capítulo que se pase las criaturas irán ganando puntos.
+
+Se tiene que limitar los valores máximos de ataque y defensa que se puede dar a las criaturas (se verá con excepciones)
+
+Se generará una librería que se meterá en un proyecto y 
+me permitirá crear mi propia criatura y ponerle escudos y armas. 
+Se dará acceso a un método que iniciará el juego y 
+al que le puedo pasar una o varias criaturas poniendo un máximo de 3 criaturas.
