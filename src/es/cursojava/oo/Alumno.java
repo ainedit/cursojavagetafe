@@ -28,6 +28,13 @@ public class Alumno {
 		this.asignaturas = asignaturas;
 	}
 
+	public Alumno(String nombre, String dni, double notaMedia) {
+		super();
+		this.nombre = nombre;
+		this.dni = dni;
+		this.notaMedia = notaMedia;
+	}
+	
 	//Métodos GET y SET
 	public String getNombre() {
 		return nombre;
@@ -73,5 +80,14 @@ public class Alumno {
 			System.out.println("Ha estudiado mucho");
 		}
 	}
+
+	@Override
+	public String toString() {
+		return "Alumno [nombre=" + nombre + ", dni=" + dni + ", "
+				+ "notaMedia=" + notaMedia + ", asignaturas="
+				+ Arrays.toString(asignaturas) + "]";
+	}
+	
+	
 	
 }

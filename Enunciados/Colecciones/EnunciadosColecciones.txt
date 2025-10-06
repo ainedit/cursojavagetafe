@@ -8,6 +8,7 @@
 
 4. Creamos un método para mostrar el nombre y la nota todos los alumnos cuya nota media sea >9
 
-5. Otro método el cual se preguntará por el nombre de un alumno y os dará la notaMedia de todos los alumnos que se llamen igual
+5. Otro método el cual se preguntará por el nombre de un alumno y 
+os dará la notaMedia de todos los alumnos que se llamen igual
 
 6. (Último que se hace)Eliminar los alumnos que esten suspensos de la lista
