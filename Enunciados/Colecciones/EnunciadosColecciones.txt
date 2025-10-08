@@ -12,3 +12,37 @@
 os dará la notaMedia de todos los alumnos que se llamen igual
 
 6. (Último que se hace)Eliminar los alumnos que esten suspensos de la lista
+
+==================== Ejercicio 2: Listas y Conjuntos ====================
+Clase Supermercado
++nombre
++stock alimentos -> List<List<Alimento>>
++clientes Set<clienteSupermercado>
+
+Clase ClienteSupermercado
+nombre
+carritoCompra-> List<Alimento>
+
+Crear los objetos 
+
+Por cada cliente que haya en el supermercado mostrar
+solo los productos disponibles y la cantidad que quedan 
+Por ejemmplo para el 
+
+	Cliente1-> 	Plátanos 3
+				Pimientos 2
+
+Pedir el producto que desea y la cantidad hasta que no desee continuar.
+Si elije 2 plátanos para el siguiente cliente en lo que se muestra 
+solo habrá 1 plátano
+	
+	Cliente2 -> Plátanos 1
+				Pimientos 2
+
+cuando hayan terminado todos los clientes, 
+cada cliente debe pagar el importe de su carrito de la compra
+
+
+
+
+
