@@ -1,3 +1,6 @@
+SELECT COUNT(*) FROM TB_PRODUCTOS_PROFE;
+
+TRUNCATE TABLE TB_PRODUCTOS_PROFE;
 -- TECNOLOGIA
 INSERT INTO TB_PRODUCTOS_PROFE (nombre, categoria, precio, stock, fecha_alta, estado, codigo_sku, iva)
 VALUES ('Smartphone 128GB', 'TECNOLOGIA', 499.00, 30, TO_DATE('05/09/2025','DD/MM/YYYY'), 'ACTIVO', 'SKU-T-003', 21);
@@ -67,7 +70,8 @@ VALUES ('Comba de velocidad', 'DEPORTE', 12.99, 35, TO_DATE('25/08/2025','DD/MM/
 INSERT INTO TB_PRODUCTOS_PROFE (nombre, categoria, precio, stock, fecha_alta, estado, codigo_sku)
 VALUES ('Rodillo foam', 'DEPORTE', 16.50, 9, TO_DATE('19/05/2025','DD/MM/YYYY'), 'ACTIVO', 'SKU-D-009');
 
-
+COMMIT;
+select DISTINCT categoria from TB_PRODUCTOS_PROFE;
 -- SINTAXIS SELECT
 --SELECT [DISTINCT] 
        --expr [, expr ...]
@@ -84,33 +88,27 @@ VALUES ('Rodillo foam', 'DEPORTE', 16.50, 9, TO_DATE('19/05/2025','DD/MM/YYYY'),
 
 --Enunciado: Muestra todas las columnas de todos los TB_PRODUCTOS_PROFE.
 --Solución:
-
-
 SELECT * FROM TB_PRODUCTOS_PROFE;
 
-
----
-
 --2) Proyección y ordenación
-
 --Enunciado: Lista `nombre`, `categoria` y `precio`, ordenado alfabéticamente por `nombre`.
 --Solución:
 
 
 SELECT nombre, categoria, precio
   FROM TB_PRODUCTOS_PROFE
- ORDER BY nombre ASC;
+ ORDER BY categoria ASC, precio DESC;
 
 
 ---
 
 --3) Filtro simple
 
---Enunciado: Muestra los TB_PRODUCTOS_PROFE de la categoría TECNOLOGIA con `precio` entre 100 y 300 euros.
+--Enunciado: Muestra los productos de la categoría TECNOLOGIA 
+--con `precio` entre 100 y 300 euros.
 --Solución:
 
-
-SELECT id, nombre, precio
+SELECT id, nombre, precio, categoria
   FROM TB_PRODUCTOS_PROFE
  WHERE categoria = 'TECNOLOGIA'
    AND precio BETWEEN 100 AND 300
@@ -121,13 +119,13 @@ SELECT id, nombre, precio
 
 --4) Nulos, defaults y condiciones
 
---Enunciado: Obtén los TB_PRODUCTOS_PROFE con stock = 0 (rotación nula) y muestra `id`, `nombre`, `estado`.
+--Enunciado: Obtén los TB_PRODUCTOS_PROFE con stock = 0 (rotación nula) 
+--y muestra `id`, `nombre`, `estado`.
 --Solución:
-
 
 SELECT id, nombre, estado
   FROM TB_PRODUCTOS_PROFE
- WHERE stock = 0
+WHERE stock = 0
  ORDER BY nombre;
 
 
@@ -169,7 +167,7 @@ SELECT categoria, COUNT(*) AS total
 
 
 SELECT categoria,
-       ROUND(AVG(precio), 2)  AS precio_medio,
+       ROUND(AVG(precio), 1)  AS precio_medio,
        MAX(precio)            AS precio_max,
        SUM(stock)             AS unidades_en_stock
   FROM TB_PRODUCTOS_PROFE
@@ -190,18 +188,21 @@ SELECT id, nombre, categoria, precio
  ORDER BY precio DESC
  FETCH FIRST 5 ROWS ONLY;
 
-
----
-
 --9) Cálculo de PVP con IVA
-
 --Enunciado: Muestra `nombre`, `precio` y el PVP (precio con IVA), redondeado a 2 decimales.
 --Solución:
 
 
+ALTER TABLE TB_PRODUCTOS_PROFE MODIFY IVA NULL;
+
+UPDATE TB_PRODUCTOS_PROFE 
+SET iva= NULL WHERE categoria = 'DEPORTE';
+
 SELECT nombre,
        precio,
-       ROUND(precio * (1 + (NVL(iva,21) / 100)), 2) AS pvp_con_iva
+       iva,
+       NVL(iva,17),
+       ROUND( precio * (1 + (NVL(iva,17) / 100)), 2 ) AS pvp_con_iva
   FROM TB_PRODUCTOS_PROFE
  ORDER BY pvp_con_iva DESC;
 
@@ -210,15 +211,20 @@ SELECT nombre,
 
 --10) Enunciado: Encuentra TB_PRODUCTOS_PROFE cuyo nombre contenga la palabra “cafe”.
 --Solución:
+SELECT id, nombre
+  FROM TB_PRODUCTOS_PROFE 
+ WHERE nombre LIKE '%cafe%';
 
 SELECT id, nombre
   FROM TB_PRODUCTOS_PROFE
- WHERE LOWER(nombre) LIKE '%cafe%';
+ WHERE LOWER(nombre) LIKE '%o';
 
 
 --11) Media de precio por categoría (solo TECNOLOGIA y HOGAR, activos)
 
---Enunciado: Para las categorías TECNOLOGIA y HOGAR con `estado = 'ACTIVO'`, muestra precio medio y nº de TB_PRODUCTOS_PROFE. Solo devuelve categorías cuya media sea > 100€. Ordena por media desc.
+--Enunciado: Para las categorías TECNOLOGIA y HOGAR con `estado = 'ACTIVO'`, 
+--muestra precio medio y nº de productos. 
+--Solo devuelve categorías cuya media sea > 100€. Ordena por media desc.
 --Solución:
 SELECT categoria,
        ROUND(AVG(precio),2) AS precio_medio,
@@ -227,15 +233,20 @@ FROM TB_PRODUCTOS_PROFE
 WHERE categoria IN ('TECNOLOGIA','HOGAR')
   AND estado = 'ACTIVO'
 GROUP BY categoria
-HAVING AVG(precio) > 100
+HAVING AVG(precio) > 150
 ORDER BY precio_medio DESC;
 
 
 ---
-
 --12) Stock por mes para (ago, sep, oct) 2025 en categorías seleccionadas
 --Solución:
---Enunciado: Para HOGAR y DEPORTE, en los meses agosto, septiembre, octubre de 2025, agrupa por mes y categoría, muestra stock total. Devuelve solo grupos con stock ≥ 20. Ordena por mes asc, stock desc.
+--Enunciado: Para HOGAR y DEPORTE, en los meses agosto, septiembre, octubre de 2025, 
+--agrupa por mes y categoría, muestra stock total. 
+--Devuelve solo grupos con stock ≥ 20. Ordena por mes asc, stock desc.
+
+select fecha_alta, TRUNC(fecha_alta, 'MM') AS mes, stock, categoria 
+FROM TB_PRODUCTOS_PROFE 
+order by mes desc;
 
 SELECT TRUNC(fecha_alta, 'MM') AS mes,
        categoria,
@@ -253,8 +264,14 @@ ORDER BY mes ASC, stock_total DESC;
 
 --13) IVA y categoría con masa crítica
 
---Enunciado: Considera solo TB_PRODUCTOS_PROFE con IVA en (21,10) y categoría en (TECNOLOGIA, HOGAR, DEPORTE). Agrupa por IVA y categoría y muestra nº de TB_PRODUCTOS_PROFE y precio máximo. Devuelve solo grupos con al menos 3 TB_PRODUCTOS_PROFE. Ordena por IVA asc, nº desc.
+--Enunciado: Considera solo productos con IVA en (21,10) 
+--y categoría en (TECNOLOGIA, HOGAR, DEPORTE). Agrupa por IVA y categoría 
+--y muestra nº de productos y precio máximo. 
+--Devuelve solo grupos con al menos 3 TB_PRODUCTOS_PROFE. Ordena por IVA asc, nº desc.
 --Solución:
+SELECT iva,categoria, NOMBRE, PRECIO FROM TB_PRODUCTOS_PROFE
+WHERE iva IN (21,10)
+  AND categoria IN ('TECNOLOGIA','HOGAR','DEPORTE');
 
 SELECT iva,
        categoria,
@@ -293,7 +310,9 @@ ORDER BY precio_medio DESC;
 
 --15) Control de “rotación cero” dentro de categorías
 
---Enunciado: Sobre HOGAR y DEPORTE, agrupa por categoría y estado y calcula cuántos tienen stock = 0 y el precio medio. Devuelve solo grupos con al menos 1 producto con stock 0 y precio medio ≥ 20. Ordena por categoría, estado.
+--Enunciado: Sobre HOGAR y DEPORTE, 
+--agrupa por categoría y estado y calcula cuántos tienen stock = 0 
+--y el precio medio. Devuelve solo grupos con al menos 1 producto con stock 0 y precio medio ≥ 20. Ordena por categoría, estado.
 --Solución:
 
 SELECT categoria,
