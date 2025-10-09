@@ -68,6 +68,17 @@ INSERT INTO TB_PRODUCTOS_PROFE (nombre, categoria, precio, stock, fecha_alta, es
 VALUES ('Rodillo foam', 'DEPORTE', 16.50, 9, TO_DATE('19/05/2025','DD/MM/YYYY'), 'ACTIVO', 'SKU-D-009');
 
 
+-- SINTAXIS SELECT
+--SELECT [DISTINCT] 
+       --expr [, expr ...]
+--FROM   fuente [, fuente ...]                -- tabla, vista, subconsulta, JOIN
+--[WHERE  condición]
+--[GROUP BY expr [, expr ...]]
+--[HAVING condición_sobre_agregados]
+--[ORDER BY expr [ASC|DESC] [NULLS FIRST|LAST] [, ...]]
+--[OFFSET n ROWS]                              -- límite/paginación (12c+)
+--[FETCH {FIRST|NEXT} n ROWS ONLY];            -- límite/paginación (12c+)
+
 
 --1) Listado básico
 
