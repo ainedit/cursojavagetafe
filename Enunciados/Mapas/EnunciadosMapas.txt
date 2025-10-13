@@ -1,3 +1,4 @@
+==================== Ejercicio 1 Mapas ====================
 Creamos 7 alumnos
 
 Vamos a separar a los alumnos por aulas,
@@ -11,3 +12,13 @@ aula3 -> 4 alumnos
 - Mostrar por cada aula cuantos alumnos hay
 - Solicitar el nombre de 1 aula y mostrar todos los alumnos del aula si el aula existe
 - Indicar cual es el aula que tiene el alumno con la nota media más alta
+
+
+==================== Ejercicio 2 Mapas ====================
+Crear clase Colegio con:
+ 	nombre, direccion, Map<"String",List<Alumno>> aulas
+ 	
+Crear 3 colegios -> Meterlos en una lista y:
++ recorrer la lista de colegios para mostrar los datos de cada colegio, el nombre de cada aula del colegio y por cada aula, el nombre,  el apellido y la nota media de sus alumnos
+
++ Indicar cual es el colegio que tiene la nota media de alumnos mayor.
