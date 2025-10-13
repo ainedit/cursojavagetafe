@@ -1,0 +1,13 @@
+Creamos 7 alumnos
+
+Vamos a separar a los alumnos por aulas,
+
+aula1 -> 2 alumnos
+aula2 -> 1 alumnos
+aula3 -> 4 alumnos
+
+- Indicar cuantas aulas tiene el colegio
+- Mostrar por cada aula los datos de los alumnos
+- Mostrar por cada aula cuantos alumnos hay
+- Solicitar el nombre de 1 aula y mostrar todos los alumnos del aula si el aula existe
+- Indicar cual es el aula que tiene el alumno con la nota media más alta
