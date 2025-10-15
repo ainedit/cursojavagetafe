@@ -12,6 +12,7 @@
 !resources/
 !EjerciciosSQL
 !EjemplosSQL
+!Examenes
 
 
 
@@ -35,3 +36,5 @@ EjerciciosSQL/*
 !EjerciciosSQL/**
 EjemplosSQL/*
 !EjemplosSQL/**
+Examenes/*
+!Examenes/**
