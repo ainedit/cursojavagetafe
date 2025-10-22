@@ -19,6 +19,27 @@ Crear clase Colegio con:
  	nombre, direccion, Map<"String",List<Alumno>> aulas
  	
 Crear 3 colegios -> Meterlos en una lista y:
-+ recorrer la lista de colegios para mostrar los datos de cada colegio, el nombre de cada aula del colegio y por cada aula, el nombre,  el apellido y la nota media de sus alumnos
++ recorrer la lista de colegios para mostrar los datos de cada colegio, 
+el nombre de cada aula del colegio y por cada aula, el nombre,  
+el apellido y la nota media de sus alumnos
 
 + Indicar cual es el colegio que tiene la nota media de alumnos mayor.
+
+
+==================== Ejercicio 3 Mapas ====================
+Ejercicio: Biblioteca por autores
+
+Clase Autor -> nombre, nacionalidad
+Libro -> Titulo, isbn, anio 
+
+Crear una biblioteca donde:
+La clave del mapa sea un objeto Autor.
+El valor sea una lista de libros (List<Libro>) escritos por ese autor.
+
+Crear los ojetos correspondientes para que haya 9 libros y 4 autores
+
++ mostrar las nacionalidades de los autores
++ mostrar el título de todos los libros publicados después del 2010
++ mostrar por cada autor que tenga más de dos libros su nombre y el nombre de todos los libros que tiene publicados
+
+
