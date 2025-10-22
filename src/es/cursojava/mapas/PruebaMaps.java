@@ -53,8 +53,13 @@ public class PruebaMaps {
 		}
 		
 
+		Set<Entry<String,Persona>> setentries = personas.entrySet();
+		
+		
 		Set<Entry<String, Persona>> entries =personas.entrySet();
 		for (Entry<String, Persona> entry : entries) {
+			entry.getKey();
+			entry.getValue();
 			System.out.println(entry.getKey() + " " + entry.getValue().getNombre());
 		}
 		
