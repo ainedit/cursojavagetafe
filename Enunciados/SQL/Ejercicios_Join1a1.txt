@@ -1,0 +1,35 @@
+Enunciado (Relación 1 a 1)
+
+Contexto. En tu empresa, cada EMPLEADO puede (o no) tener exactamente una CREDENCIAL_ACCESO para entrar al edificio (tarjeta RFID). Si existe credencial, es única para ese empleado y no puede compartirse.
+
+Objetivo. Modelar y consultar una relación 1:1 estricta entre EMPLEADO y CREDENCIAL_ACCESO usando Oracle XE.
+
+Tareas:
+
+Modelo de datos
+
+Crea la tabla EMPLEADO con: EMPLOYEE_ID (PK), FULL_NAME, HIRED_ON.
+
+Crea la tabla CREDENCIAL_ACCESO con:
+
+Patrón 1:1 estricto de PK compartida: EMPLOYEE_ID será PK y a la vez FK a EMPLEADO(EMPLOYEE_ID).
+
+Campos: RFID_CODE (único), ISSUED_ON.
+
+Si se borra un empleado, su credencial debe borrarse automáticamente.
+
+Carga de datos
+
+Inserta 3 empleados.
+
+Asigna credencial a 2 de ellos; deja 1 sin credencial.
+
+Consultas
+
+a) Lista solo los empleados con credencial
+
+b) Lista todos los empleados y su credencial si existe 
+
+c) Empleados sin credencial 
+
+d) Comprobación de unicidad: intenta insertar una credencial con un RFID_CODE duplicado y observa el error de restricción.
