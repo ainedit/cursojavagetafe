@@ -41,7 +41,8 @@ public class MapaColegio {
 		}
 		
 	}
-	private static List<Alumno> generaAlumnos(){
+	
+	static List<Alumno> generaAlumnos(){
 		Alumno alumno1 = new Alumno("A1", "111A", 7.5);
 		Alumno alumno2 = new Alumno("A2", "222B", 2.5);
 		Alumno alumno3 = new Alumno("A3", "333C", 3.5);
@@ -49,8 +50,14 @@ public class MapaColegio {
 		Alumno alumno5 = new Alumno("A5", "555E", 5.5);
 		Alumno alumno6 = new Alumno("A6", "666F", 6.5);
 		Alumno alumno7 = new Alumno("A7", "777G", 8.5);
+		Alumno alumno8 = new Alumno("A8", "333C", 3.5);
+		Alumno alumno9 = new Alumno("A9", "444D", 4.5);
+		Alumno alumno10 = new Alumno("A10", "555E", 5.5);
+		Alumno alumno11 = new Alumno("A11", "666F", 6.5);
+		Alumno alumno12 = new Alumno("A12", "777G", 8.5);
 		
-		List<Alumno> alumnos = Arrays.asList(alumno1,alumno2,alumno3,alumno4,alumno5,alumno6,alumno7);
+		List<Alumno> alumnos = Arrays.asList(alumno1,alumno2,alumno3,alumno4,
+				alumno5,alumno6,alumno7,alumno8,alumno9,alumno10,alumno11,alumno12,alumno7);
 		
 		return alumnos;
 	}
