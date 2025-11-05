@@ -1,0 +1,8 @@
+En una clase
+main ()-->
+En tres métodos distintos
++Pedir tamaño de un array de números, con ese dato crear el array
++solicitar los números a ingresar en el array
++solicitar la posición del array para mostrar su valor
+
+Si hay alguna excepción se indica al usuario un mensaje y se vuelve a pedir la información
