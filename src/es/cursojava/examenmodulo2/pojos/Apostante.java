@@ -24,6 +24,10 @@ public class Apostante extends Persona implements Imprimible{
 		this.saldo = saldo;
 	}
 	
+	
+	public void actualizarSaldo (double importe) {
+		this.saldo += importe;
+	}
 
 	@Override
 	public String toString() {

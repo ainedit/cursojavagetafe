@@ -17,6 +17,7 @@ public class UtilsCaballos {
 		int experiencia = random.nextInt(1,10);
 		
 		Caballo caballo = new Caballo(nombreBase,peso,velocidad,experiencia, jinete);
+		caballo.imprimeDatos();
 		
 		return caballo;
 	}
