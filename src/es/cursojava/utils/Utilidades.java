@@ -1,5 +1,6 @@
 package es.cursojava.utils;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Utilidades {
@@ -33,9 +34,14 @@ public class Utilidades {
 		int numero=0;
 		System.out.println(texto);
 		Scanner scan = new Scanner(System.in);
-		numero = scan.nextInt();
 		
-		return numero;
+		try {
+			return scan.nextInt();
+		} catch (InputMismatchException | NumberFormatException e) {
+			System.out.println("No has introducido un valor correcto");
+			return pideDatoNumerico(texto);
+		}
+		
 	}
 	
 	public static String pideDatoCadena (String texto) {
