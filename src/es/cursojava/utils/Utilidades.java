@@ -28,6 +28,8 @@ public class Utilidades {
 			System.out.println(opcion);
 		}
 		System.out.println(texto);
+		
+		
 	}
 	
 	public static int pideDatoNumerico (String texto) {
@@ -41,6 +43,31 @@ public class Utilidades {
 			System.out.println("No has introducido un valor correcto");
 			return pideDatoNumerico(texto);
 		}
+		
+	}
+	
+	
+	public static double pideDatoDecimal (String texto) {
+		double numero=0;
+		boolean hayError;
+		do {
+			
+			System.out.println(texto);
+			Scanner scan = new Scanner(System.in);
+			
+			try {
+				numero = scan.nextDouble();
+				hayError=false;
+			}catch(InputMismatchException ime) {
+				hayError=true;
+				System.out.println("Valor introducido no correcto");
+			}finally {
+				scan.close();
+			}
+			
+		}while(hayError);
+		
+		return numero;
 		
 	}
 	
