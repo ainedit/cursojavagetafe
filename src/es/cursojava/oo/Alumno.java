@@ -2,6 +2,8 @@ package es.cursojava.oo;
 
 import java.util.Arrays;
 
+import es.cursojava.excepciones.ejercicios.ejercicio1.NotaInvalidaException;
+
 public class Alumno {
 	//Variables de instancia
 	static int numero;
@@ -9,6 +11,7 @@ public class Alumno {
 	private String dni;
 	private double notaMedia=10;
 	private String[] asignaturas;
+	private int edad;
 	
 	//Constructores
 	public Alumno() {
@@ -20,8 +23,26 @@ public class Alumno {
 		this.dni = dni;
 	}
 	
-	public Alumno(String nombre, String dni, double notaMedia, String[] asignaturas) {
+	public Alumno(String nombre, String dni, double notaMedia, 
+			String[] asignaturas, int edad) throws NotaInvalidaException{
 		super();
+		
+		if (edad<=0) {
+			throw new IllegalArgumentException("Edad no valida");
+		}else if (notaMedia<0 || notaMedia>10 ) {
+			throw new NotaInvalidaException("Nota fuera de rango correcto (0-10)");
+		}
+		
+		
+		this.nombre = nombre;
+		this.dni = dni;
+		this.notaMedia = notaMedia;
+		this.asignaturas = asignaturas;
+		this.edad = edad;
+	}
+
+	public Alumno(String nombre, String dni, double notaMedia, String[] asignaturas) {
+		//this(nombre,dni,notaMedia,asignaturas, 0);
 		this.nombre = nombre;
 		this.dni = dni;
 		this.notaMedia = notaMedia;
@@ -61,6 +82,16 @@ public class Alumno {
 		this.asignaturas = asignaturas;
 	}
 	
+	
+	
+	public int getEdad() {
+		return edad;
+	}
+
+	public void setEdad(int edad) {
+		this.edad = edad;
+	}
+
 	public void metodo1() {
 		
 	}
@@ -83,10 +114,11 @@ public class Alumno {
 
 	@Override
 	public String toString() {
-		return "Alumno [nombre=" + nombre + ", dni=" + dni + ", "
-				+ "notaMedia=" + notaMedia + ", asignaturas="
-				+ Arrays.toString(asignaturas) + "]";
+		return "Alumno [nombre=" + nombre + ", dni=" + dni + ", notaMedia=" + notaMedia + ", asignaturas="
+				+ Arrays.toString(asignaturas) + ", edad=" + edad + "]";
 	}
+
+
 	
 	
 	
