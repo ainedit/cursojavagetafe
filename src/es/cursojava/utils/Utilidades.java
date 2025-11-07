@@ -61,8 +61,6 @@ public class Utilidades {
 			}catch(InputMismatchException ime) {
 				hayError=true;
 				System.out.println("Valor introducido no correcto");
-			}finally {
-				scan.close();
 			}
 			
 		}while(hayError);
