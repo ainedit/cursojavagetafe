@@ -13,9 +13,6 @@ CREATE TABLE TB_PRODUCTOS_PROFE (
   iva          NUMBER(3,0)         DEFAULT 21 NOT NULL
 );
 
--- Índice para búsqueda por nombre
-CREATE INDEX idx_TB_PRODUCTOS_PROFE_nombre ON TB_PRODUCTOS_PROFE(nombre);
-
 -- Cambios posteriores requeridos por negocio
 ALTER TABLE TB_PRODUCTOS_PROFE RENAME COLUMN sku TO codigo_sku;
 ALTER TABLE TB_PRODUCTOS_PROFE MODIFY (nombre VARCHAR2(120));
