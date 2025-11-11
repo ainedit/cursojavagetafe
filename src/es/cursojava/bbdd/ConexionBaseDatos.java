@@ -8,14 +8,18 @@ import oracle.jdbc.pool.OracleDataSource;
 
 public class ConexionBaseDatos {
     public static void main(String[] args) {
-        
+//    	try (Puerta p = new Puerta("Blanca")){
+//			p.abrir();
+//		}catch(Exception e) {
+//			System.out.println("Error abriendo la puerta");
+//		}
         conectaOracle();
     }
 
 
     private static void conectaOracle() {
-		String url_oracle = "jdbc:oracle:thin:llorente/password@//10.2.1.23:1522/XEPDB1";	
-		String url_oracle2 = "jdbc:oracle:thin:@//10.2.1.23:1522/XEPDB1";
+		String url_oracle = "jdbc:oracle:thin:llorente/password@//localhost:1522/XEPDB1";	
+		String url_oracle2 = "jdbc:oracle:thin:@//localhost:1522/XEPDB1";
 		String username = "llorente";
 		String password = "password";
 
@@ -34,12 +38,34 @@ public class ConexionBaseDatos {
 			System.err.println("Ha habido un error " + e.getMessage());
 //			e.printStackTrace();
 		}finally {
-			//connection.close();
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 		
 		
     }
 	
+    
+    private static void conectaOracleTryWithResources() {
+    	String url_oracle = "jdbc:oracle:thin:llorente/password@//localhost:1522/XEPDB1";	
+		String url_oracle2 = "jdbc:oracle:thin:@//localhost:1522/XEPDB1";
+		String username = "llorente";
+		String password = "password";
+		
+		try (Connection connection = DriverManager.getConnection(url_oracle2,username,password);) {
+			if (connection!=null) {
+				System.out.println("Conexion establecida");
+			}
+			
+		}catch (SQLException e) {
+			System.err.println("Ha habido un error " + e.getMessage());
+		}
+		
+    }
 	
 	private static void conectaOracle2() {
 		String url_oracle = "jdbc:oracle:thin:getafesql/password@localhost:1522:XE";
