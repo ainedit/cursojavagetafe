@@ -5,8 +5,8 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class UtilidadesBD {
-    private static final String URL_DB_ORACLE = "jdbc:oracle:thin:@localhost:1522:XE";
-    private static final String USER_DB_ORACLE = "getafesql";
+    private static final String URL_DB_ORACLE = "jdbc:oracle:thin:@localhost:1522/XEPDB1";
+    private static final String USER_DB_ORACLE = "llorente";
     private static final String PASSWORD_DB_ORACLE="password";
     private static Connection conn = null;
 
