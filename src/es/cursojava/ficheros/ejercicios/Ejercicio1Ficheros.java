@@ -11,10 +11,11 @@ import es.cursojava.utils.UtilidadesFicheros;
 
 public class Ejercicio1Ficheros {
     private static final Logger logger = LoggerFactory.getLogger(Ejercicio1Ficheros.class);
-    private static final String DIR_ORIGEN = "C:\\\\Users\\\\Tardes\\\\Ficheros\\\\";
+    private static final String DIR_ORIGEN = "C:\\Users\\Tardes\\Ficheros\\";
     private static final String DIR_DOCUMENTOS = "documentos";
     private static final String DIR_IMAGENES = "imagenes";
     private static final String DIR_OTROS = "otros";
+    
     public static void main(String[] args) {
         File dirFicheros = new File(DIR_ORIGEN);
 
@@ -28,9 +29,11 @@ public class Ejercicio1Ficheros {
 
          for (int i = 0; i < 5; i++) {
              String nombreFichero = Utilidades.pideDatoCadena("Introduce nombre del fichero "+ (i+1));
+             
              String extensionFichero = nombreFichero.substring(nombreFichero.lastIndexOf("."));
              logger.info("La extension del fichero "+ nombreFichero +" es " +extensionFichero);
              String directorioDestino = "";
+                         
              if (extensionFichero.equals(".txt")){
                  directorioDestino = DIR_ORIGEN+DIR_DOCUMENTOS;
              }
@@ -49,25 +52,29 @@ public class Ejercicio1Ficheros {
              }
          }
 
-
+        System.out.println("Empieza");
         File dirOtros = new File(DIR_ORIGEN+DIR_OTROS);
         File[] ficherosOtros = dirOtros.listFiles();
         int contador = 0;
         for (File fichero : ficherosOtros) {
             if (fichero.isFile()){
+            	System.out.println("Fichero "+fichero.getName());
                 String extensionFichero = "";
                 if (fichero.getName().contains(".")){
                     extensionFichero = fichero.getName().substring(fichero.getName().lastIndexOf("."));
                 }else{
                     extensionFichero = ".xml";
                 }
-                
+                System.out.println("extension "+extensionFichero);
                 String nuevoNombre = "joseluis"+contador+extensionFichero;
+                System.out.println("nuevoNombre "+nuevoNombre);
                 File fileRenamed = new File (dirOtros,nuevoNombre);
-                fichero.renameTo(fileRenamed);
+                boolean renombrado = fichero.renameTo(fileRenamed);
+                System.out.println("renombrado"+renombrado);
                 contador++;
             }
         }
+        System.out.println("Termina");
     }
     
 }
