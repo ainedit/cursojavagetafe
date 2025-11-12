@@ -1,0 +1,20 @@
+Ejercicio 1:
+============================================================
+Ficheros FILE: 
+Crear en la carpeta Ficheros:
+Crear el directorio llamado ‘Imágenes’. 
+Crear el directorio llamado ‘Documentos’. 
+Crear el directorio llamado ‘Otros’. 
+
+Preguntar por 5 nombres de ficheros.
+    Si el fichero tiene la extensión de una imagen (.gif - .jpg - .png) lo vas a crear en la carpeta de imágenes. 
+    Si el fichero es un .txt en documentos. 
+    Si no es una imagen y no es un documento lo añadirán en otros. 
+
+Coger todos los ficheros que están en el directorio de otros, renombrarlos con nuestro nombre y con un contador para clasificar los archivos.
+
+Ejercicio 2:
+============================================================
+Preguntamos por un directorio
+Si existe 
+Nombre, tamaño y si es oculto (De cada fichero del directorio).
