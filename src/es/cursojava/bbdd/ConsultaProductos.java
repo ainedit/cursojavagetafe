@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import es.cursojava.ficheros.ArchivoServicio;
 import es.cursojava.utils.UtilidadesBD;
 
 public class ConsultaProductos {
@@ -17,11 +18,11 @@ public class ConsultaProductos {
     
     public static void main(String[] args) {
 
-    	consultaProductos();
-
+    	List<Producto> productos = consultaProductos();
+    	ArchivoServicio.crearArchivoProductos("./recursos/productos.txt", productos, ";");
     }
 
-    public static void consultaProductos() {
+    public static List<Producto> consultaProductos() {
         
         Connection conexion = UtilidadesBD.crearConexion();
         Statement st = null;
@@ -66,6 +67,16 @@ public class ConsultaProductos {
         for (Producto producto : productos) {
 			System.out.println(producto);
 		}
+        
+        return productos;
+    }
+    
+    private static void insertProductos(List<Producto> productos) {
+    	
+    	for (Producto producto : productos) {
+			String insert = "INSERT INTO TB_PRODUCTOS_PROFE VALUES("+producto.getId()+""; 
+		}
+    	
     }
 
 
