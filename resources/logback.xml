@@ -1,25 +1,36 @@
 <configuration>
 
-  <!-- Consola -->
-  <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
-    <encoder>
-      <pattern>%d{yyyy-MM-dd HH:mm:ss} %-5level [%thread] %logger{36} - %msg%n</pattern>
-    </encoder>
-  </appender>
+	<!-- Consola -->
+	<appender name="STDOUT"
+		class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>%d{yyyy-MM-dd HH:mm:ss} %-5level [%thread] %logger{36} -
+				%msg%n</pattern>
+		</encoder>
+	</appender>
 
-  <!-- Fichero -->
-  <appender name="FILE" class="ch.qos.logback.core.FileAppender">
-    <file>app.log</file>
-    <append>true</append>
-    <encoder>
-      <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger - %msg%n</pattern>
-    </encoder>
-  </appender>
+	<!-- Fichero -->
+	<appender name="FILE" class="ch.qos.logback.core.FileAppender">
+		<file>app.log</file>
+		<append>true</append>
+		<encoder>
+			<pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger - %msg%n
+			</pattern>
+		</encoder>
+	</appender>
 
-  <!-- Nivel por defecto -->
-  <root level="debug">
-    <appender-ref ref="STDOUT"/>
-    <appender-ref ref="FILE"/>
-  </root>
+	<!-- Sólo errores de Hibernate -->
+	<logger name="org.hibernate" level="ERROR" additivity="false">
+		<appender-ref ref="STDOUT" />
+	</logger>
+
+
+	<!-- Nivel por defecto -->
+	<root level="debug">
+		<appender-ref ref="STDOUT" />
+		<appender-ref ref="FILE" />
+	</root>
+
+
 
 </configuration>
