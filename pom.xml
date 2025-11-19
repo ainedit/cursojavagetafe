@@ -15,15 +15,15 @@
 				</excludes>
 			</resource>
 		</resources>
-<!--		<plugins>-->
-<!--			<plugin>-->
-<!--				<artifactId>maven-compiler-plugin</artifactId>-->
-<!--				<version>3.13.0</version>-->
-<!--				<configuration>-->
-<!--					<release>21</release>-->
-<!--				</configuration>-->
-<!--			</plugin>-->
-<!--		</plugins>-->
+		<!--		<plugins>-->
+		<!--			<plugin>-->
+		<!--				<artifactId>maven-compiler-plugin</artifactId>-->
+		<!--				<version>3.13.0</version>-->
+		<!--				<configuration>-->
+		<!--					<release>21</release>-->
+		<!--				</configuration>-->
+		<!--			</plugin>-->
+		<!--		</plugins>-->
 		<pluginManagement>
 			<plugins>
 				<plugin>
@@ -71,10 +71,27 @@
 			<artifactId>lombok</artifactId>
 			<version>1.18.42</version>
 		</dependency>
+
+		<!-- Hibernate -->
+		<!-- Hibernate Core -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>6.6.12.Final</version>
+		</dependency>
+
+		<!-- JPA API -->
+		<dependency>
+			<groupId>jakarta.persistence</groupId>
+			<artifactId>jakarta.persistence-api</artifactId>
+			<version>3.1.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.hibernate.validator</groupId>
+			<artifactId>hibernate-validator</artifactId>
+			<version>8.0.1.Final</version>
+		</dependency>
 	</dependencies>
 
-
 </project>
-
-
-
