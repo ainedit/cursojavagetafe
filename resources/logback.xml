@@ -24,6 +24,9 @@
 		<appender-ref ref="STDOUT" />
 	</logger>
 
+	<logger name="org.jboss" level="ERROR" additivity="false">
+		<appender-ref ref="STDOUT" />
+	</logger>
 
 	<!-- Nivel por defecto -->
 	<root level="debug">
