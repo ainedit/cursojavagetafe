@@ -1,0 +1,64 @@
+Crear la clase Curso para que Hibernate cree la tabla TB_CURSO 
+	+id
+		Obligatorio.
+		Clave primaria de la tabla.
+		Se genera automáticamente (valor autoincremental).
+	
+	+codigo
+		Obligatorio.
+		Debe ser único (no puede repetirse en dos cursos).
+		Longitud máxima: por ejemplo, 20 caracteres.
+	
+	+nombre
+		Obligatorio.
+		Longitud máxima: por ejemplo, 100 caracteres.
+		No puede ser una cadena vacía.
+	
+	+descripcion
+		Opcional.
+		Longitud máxima: por ejemplo, 500 o 1000 caracteres.
+	
+	+horas_totales
+		Obligatorio.
+		Debe ser un número entero positivo (mayor que 0).
+	
+	+activo
+		Obligatorio.
+		Solo admite dos valores: verdadero o falso.
+		Valor por defecto: verdadero (el curso está activo al crearlo).
+	
+	+nivel
+		Opcional.
+		Longitud máxima: 20 caracteres.
+		Se puede limitar a valores como: “Básico”, “Intermedio”, “Avanzado”
+	
+	+categoria
+		Opcional (aunque recomendable).
+		Longitud máxima: 50 caracteres.
+		Se pueden definir categorías estándar (Programación, Big Data, DevOps, etc.).
+	
+	+precio
+		Opcional.
+		Si se informa, debe ser mayor o igual que 0.
+	
+	+fecha_inicio
+		Opcional.
+		Debe ser una fecha válida (no texto libre).
+		
+	+fecha_fin
+		Opcional.
+		Si existe, debe ser igual o posterior a fecha_inicio.
+	+fecha_creacion
+		Obligatoria.
+		Se establece automáticamente con la fecha y hora actuales cuando se crea el curso.
+		
+	(fecha_inicio → tipo Java: LocalDate
+	fecha_fin → tipo Java: LocalDate
+	fecha_creacion → tipo Java: LocalDateTime)
+	
+	
+Crear una clase UtilidadesHibernate para obtener la conexion
+En métodos distintos
+	+ Insertar 3 o 4 cursos
+	+ Mostrar los datos de los cursos
+	+ Mostrar los datos de los cursos activos
