@@ -7,11 +7,10 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
-import org.hibernate.query.Query;
 
 public class HibernateMain {
     public static void main(String[] args) {
-
+    	Transaction tx = null;
         try {
             SessionFactory sessionFactory = new Configuration()
                     .configure() // Carga hibernate.cfg.xml
@@ -19,7 +18,7 @@ public class HibernateMain {
             Session session = sessionFactory.openSession();
             System.out.println("Conectado");
                      
-            Transaction tx = session.beginTransaction();
+            tx = session.beginTransaction();
             
             Empresa empresa1 = new Empresa("Empresa1","S.A.","123123D","Venta Jabones", 
             					Calendar.getInstance().getTime());
@@ -38,6 +37,11 @@ public class HibernateMain {
             
             
         } catch (Throwable ex) {
+        	try {
+        		tx.rollback();
+        	}catch (NullPointerException e) {
+        		System.out.println("Transacción no creada");
+			}
         	
             System.err.println("Error al crear la SessionFactory." + ex);
             throw new ExceptionInInitializerError(ex);

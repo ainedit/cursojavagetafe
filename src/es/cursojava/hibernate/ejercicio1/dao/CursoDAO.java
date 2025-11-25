@@ -3,6 +3,7 @@ package es.cursojava.hibernate.ejercicio1.dao;
 import java.util.List;
 
 import org.hibernate.Session;
+import org.hibernate.Transaction;
 
 import es.cursojava.hibernate.ejercicio1.entites.Curso;
 import es.cursojava.utils.HibernateUtil;
@@ -10,9 +11,11 @@ import es.cursojava.utils.HibernateUtil;
 public class CursoDAO {
 	
 	private Session session;
+	private Transaction transaction;
 	
 	public CursoDAO() {
-		session = HibernateUtil.getSession();
+		session = HibernateUtil.getSessionFactory();
+		transaction = session.beginTransaction();
 	}
 	
 	public void guardarCurso(Curso curso) {
@@ -27,8 +30,8 @@ public class CursoDAO {
 		
 	}
 	
-	public void obtenerCursoPorId() {
-		
+	public Curso obtenerCursoPorId(Long id) {
+		return session.get(Curso.class, id);
 	}
 	
 	public List<Curso> obtenerTodosLosCursos() {
@@ -36,5 +39,11 @@ public class CursoDAO {
 		return session.createQuery("from Curso", Curso.class).list();
 		
 	}
+
+	public void commitTransaction() {
+		transaction.commit();
+	}
+	
+	
 	
 }
