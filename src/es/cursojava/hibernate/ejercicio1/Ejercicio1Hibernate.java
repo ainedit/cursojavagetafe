@@ -1,19 +1,63 @@
 package es.cursojava.hibernate.ejercicio1;
 
+import java.io.IOException;
+import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 import es.cursojava.hibernate.ejercicio1.dao.CursoDAO;
 import es.cursojava.hibernate.ejercicio1.entites.Curso;
 import es.cursojava.utils.Utilidades;
+import es.cursojava.utils.UtilidadesFicheros;
 
 public class Ejercicio1Hibernate {
 
 	public static void main(String[] args) {
-		insertarCursos();
-		listarCursos();
-		obtenerCursoPorId();
+		insertarCursos(generarCursosDesdeFichero());
+		//insertarCursos();
+//		listarCursos();
+//		obtenerCursoPorId();
 	}
+	
+	private static List<Curso> generarCursosDesdeFichero() {
+		String rutaFichero = "./cursos.txt";
+		List<Curso> cursos = new ArrayList<Curso>();
+		try {
+			List<String> lineas = UtilidadesFicheros.leerFichero(rutaFichero);
+			for (String linea : lineas) {
+				System.out.println("Procesando linea: "+linea);
+				String [] datos = linea.split("\\|");
+				System.out.println("Datos obtenidos: "+ Arrays.toString(datos));
+				
+				String codigo = datos[0];
+				String nombre = datos[1];
+				String descripcion = datos[2];
+				Integer horasTotales = Integer.valueOf( datos[3] );
+				Boolean activo = Boolean.valueOf( datos[4] );
+				String nivel = datos[5];
+				String categoria = datos[6];
+				BigDecimal precio = new BigDecimal( datos[7] );
+				LocalDate fechaInicio = LocalDate.parse( datos[8] );
+				LocalDate fechaFinal = LocalDate.parse( datos[9] );
+				
+				Curso curso = new Curso(codigo, nombre, descripcion, 
+						horasTotales,
+						activo, nivel, categoria, precio, 
+						fechaInicio, fechaFinal);
+				
+				cursos.add(curso);
+				
+			}
+			
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return cursos;
+	}
+	
 	
 	private static void insertarCursos() {
 		System.out.println("Insertando cursos");
@@ -23,6 +67,11 @@ public class Ejercicio1Hibernate {
 		
 		List<Curso> cursos = Arrays.asList(curso1,curso2, curso3);
 		
+		insertarCursos(cursos);
+	}
+	
+	
+	private static void insertarCursos (List<Curso> cursos) {
 		System.out.println("Insertando "+cursos.size() + " cursos");
 		CursoDAO dao = new CursoDAO();
 		for (Curso curso : cursos) {
