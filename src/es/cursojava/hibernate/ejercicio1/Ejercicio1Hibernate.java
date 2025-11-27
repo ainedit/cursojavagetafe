@@ -16,13 +16,30 @@ public class Ejercicio1Hibernate {
 
 	public static void main(String[] args) {
 		//insertarCursos(generarCursosDesdeFichero());
-		mostrarCursosPorNombre();
+		//mostrarCursosPorNombre();
 		//mostrarCursosActivos();
 		//insertarCursos();
 //		listarCursos();
 //		obtenerCursoPorId();
+		filtrarPorFechas();
 		
 	}
+	
+	public static void filtrarPorFechas() {
+
+		CursoDAOImpl dao = new CursoDAOImpl();
+
+        // Definir el rango de fechas
+        LocalDate fechaDesde = LocalDate.of(2025, 1, 1);
+        LocalDate fechaHasta = LocalDate.of(2025, 2, 1);
+
+        // Llamar al método
+        List<Curso> cursos = dao.buscarPorRangoFechaInicio(fechaDesde, fechaHasta);
+
+        // Mostrar resultados
+        System.out.println("Cursos con fecha de inicio entre " + fechaDesde + " y " + fechaHasta + ":");
+        cursos.forEach(System.out::println);
+    }
 	
 	private static void mostrarCursosActivos () {
 		CursoDAOImpl dao = new CursoDAOImpl();
