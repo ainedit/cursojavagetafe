@@ -1,0 +1,3 @@
+- Información de un Curso por su Código
+- Información de cursos por categoría y fecha inicio > 1/02/2025
+- Información de todos los cursos por nivel, por horas > y fecha inicio
