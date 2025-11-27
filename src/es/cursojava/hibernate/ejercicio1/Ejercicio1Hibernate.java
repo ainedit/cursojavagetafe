@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import es.cursojava.hibernate.ejercicio1.dao.CursoDAO;
+import es.cursojava.hibernate.ejercicio1.dao.CursoDAOImpl;
 import es.cursojava.hibernate.ejercicio1.entites.Curso;
 import es.cursojava.utils.Utilidades;
 import es.cursojava.utils.UtilidadesFicheros;
@@ -15,10 +15,32 @@ import es.cursojava.utils.UtilidadesFicheros;
 public class Ejercicio1Hibernate {
 
 	public static void main(String[] args) {
-		insertarCursos(generarCursosDesdeFichero());
+		//insertarCursos(generarCursosDesdeFichero());
+		mostrarCursosPorNombre();
+		//mostrarCursosActivos();
 		//insertarCursos();
 //		listarCursos();
 //		obtenerCursoPorId();
+		
+	}
+	
+	private static void mostrarCursosActivos () {
+		CursoDAOImpl dao = new CursoDAOImpl();
+		List<Curso> cursos = dao.obtenerCursosActivos();
+		for (Curso curso : cursos) {
+			System.out.println("Curso activo: "+curso.getCodigo()+" - "+curso.getNombre());
+		}
+		dao.commitTransaction();
+	}
+	
+	private static void mostrarCursosPorNombre () {
+		String nombre = Utilidades.pideDatoCadena("Introduce el nombre del curso a buscar: ");
+		CursoDAOImpl dao = new CursoDAOImpl();
+		List<Curso> cursos = dao.obtenerCursosPorNombre(nombre);
+		for (Curso curso : cursos) {
+			System.out.println("Curso activo: "+curso.getCodigo()+" - "+curso.getNombre());
+		}
+		dao.commitTransaction();
 	}
 	
 	private static List<Curso> generarCursosDesdeFichero() {
@@ -73,7 +95,7 @@ public class Ejercicio1Hibernate {
 	
 	private static void insertarCursos (List<Curso> cursos) {
 		System.out.println("Insertando "+cursos.size() + " cursos");
-		CursoDAO dao = new CursoDAO();
+		CursoDAOImpl dao = new CursoDAOImpl();
 		for (Curso curso : cursos) {
 			System.out.println("Insertando curso "+curso.getCodigo());
 			dao.guardarCurso(curso);
@@ -84,7 +106,7 @@ public class Ejercicio1Hibernate {
 
 	private static void listarCursos() {
 		System.out.println("Listando cursos");
-		CursoDAO dao = new CursoDAO();
+		CursoDAOImpl dao = new CursoDAOImpl();
 		List<Curso> cursos = dao.obtenerTodosLosCursos();
 		for (Curso curso : cursos) {
 			System.out.println("Curso: "+curso.getCodigo()+" - "+curso.getNombre());
@@ -95,7 +117,7 @@ public class Ejercicio1Hibernate {
 	
 	private static void obtenerCursoPorId() {
 		int id = Utilidades.pideDatoNumerico("Introduce el id del curso a buscar: ");
-		CursoDAO dao = new CursoDAO();
+		CursoDAOImpl dao = new CursoDAOImpl();
 		Curso curso = dao.obtenerCursoPorId( Long.valueOf(id));
 		if (curso != null) {
 			System.out.println("Curso encontrado: "+curso.getCodigo()+" - "+curso.getNombre());
