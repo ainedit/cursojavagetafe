@@ -4,16 +4,17 @@ import java.util.List;
 
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.query.Query;
 
 import es.cursojava.hibernate.ejercicio1.entites.Curso;
 import es.cursojava.utils.HibernateUtil;
 
-public class CursoDAO {
+public class CursoDAOImpl implements CursoDAO {
 	
 	private Session session;
 	private Transaction transaction;
 	
-	public CursoDAO() {
+	public CursoDAOImpl() {
 		session = HibernateUtil.getSessionFactory();
 		transaction = session.beginTransaction();
 	}
@@ -22,11 +23,11 @@ public class CursoDAO {
 		session.persist(curso);
 	}
 	
-	public void eliminarCurso() {
+	public void eliminarCurso(Long id) {
 		
 	}
 
-	public void actualizarCurso() {
+	public void actualizarCurso(Curso curso) {
 		
 	}
 	
@@ -35,13 +36,35 @@ public class CursoDAO {
 	}
 	
 	public List<Curso> obtenerTodosLosCursos() {
-		
 		return session.createQuery("from Curso", Curso.class).list();
 		
 	}
 
 	public void commitTransaction() {
 		transaction.commit();
+	}
+
+	@Override
+	public List<Curso> obtenerCursosActivos() {
+		
+		Query<Curso> query = session.createQuery("from Curso where activo = true", Curso.class);
+		
+		return query.list();
+	}
+
+	@Override
+	public List<Curso> obtenerCursosPorNombre(String nombre) {
+		// Si no se proporciona nombre, devolvemos todos los cursos
+		if (nombre == null || nombre.trim().isEmpty()) {
+			return obtenerTodosLosCursos();
+		}
+		
+		// En HQL no se deben poner los comodines (%) dentro de la cadena de la consulta junto al placeholder.
+		// Uso correcto: '... where nombre like :nombreParam' y paso '%valor%' al parámetro.
+		Query<Curso> query = session.createQuery("from Curso where nombre like :nombreParam", Curso.class);
+		query.setParameter("nombreParam", "%" + nombre.trim() + "%");
+		
+		return query.list();
 	}
 	
 	
