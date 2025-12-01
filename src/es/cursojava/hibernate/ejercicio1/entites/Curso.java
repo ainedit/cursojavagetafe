@@ -90,7 +90,10 @@ public class Curso implements Serializable {
         this.activo = Boolean.TRUE;
     }
 
-    
+    public Curso(String nombre, String descripcion) {
+    	this.nombre = nombre;
+		this.descripcion = descripcion;
+    }
     
     public Curso(@NotNull @NotBlank @Size(max = 20) String codigo,
 			@NotNull @NotBlank @Size(max = 100) String nombre, 
