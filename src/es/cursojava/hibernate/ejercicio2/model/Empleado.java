@@ -13,7 +13,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "TB_EMPLEADO")
-//@Check(constraints = "precio > 0")
+//@Check(constraints = "salario > 0")
 public class Empleado {
 
     @Id
@@ -31,6 +31,7 @@ public class Empleado {
     private String departamento;
 
     @Column(name = "SALARIO", nullable = false)
+    @Check(constraints = "SALARIO > 0")
     private BigDecimal salario;
 
     public Empleado() {

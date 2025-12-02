@@ -12,6 +12,14 @@ public class EmpleadoDto {
     public EmpleadoDto() {
     }
 
+    
+    public EmpleadoDto(String nif, String nombre, String departamento, BigDecimal salario) {
+        this.nif = nif;
+        this.nombre = nombre;
+        this.departamento = departamento;
+        this.salario = salario;
+    }
+    
     public EmpleadoDto(Long id, String nif, String nombre, String departamento, BigDecimal salario) {
         this.id = id;
         this.nif = nif;

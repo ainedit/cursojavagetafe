@@ -22,7 +22,11 @@ public class EmpleadoDaoImpl implements EmpleadoDao {
 
     @Override
     public void guardar(Empleado empleado) {
-        session.merge(empleado); // merge handles both save and update
+        //session.merge(empleado); // merge handles both save and update
+        session.persist(empleado);
+        session.flush();
+        //session.saveOrUpdate(empleado);
+        
     }
 
     @Override
@@ -35,9 +39,9 @@ public class EmpleadoDaoImpl implements EmpleadoDao {
 
     @Override
     public Empleado buscarPorNif(String nif) {
-        Query<Empleado> query = session.createQuery("FROM Empleado WHERE nif = :nif", Empleado.class);
-        query.setParameter("nif", nif);
-        transaction.commit();
+        Query<Empleado> query = session.createQuery("FROM Empleado WHERE nif = :nifEmpleado", Empleado.class);
+        query.setParameter("nifEmpleado", nif);
+        //transaction.commit();
         return query.uniqueResult();
     }
 
