@@ -6,7 +6,7 @@
 
         <!-- Conexión JDBC -->
         <property name="hibernate.connection.driver_class">oracle.jdbc.OracleDriver</property>
-        <property name="hibernate.connection.url">jdbc:oracle:thin:@localhost:1522/XEPDB1</property>
+        <property name="hibernate.connection.url">jdbc:oracle:thin:@10.2.1.10:1522/XEPDB1</property>
         <property name="hibernate.connection.username">llorente</property>
         <property name="hibernate.connection.password">password</property>
 
@@ -19,7 +19,7 @@
 
         <!-- Crear y borrar la base de datos en cada ejecución -->
         <!-- <property name="hibernate.hbm2ddl.auto">create-drop</property> -->
-        <property name="hibernate.hbm2ddl.auto">create</property>
+        <property name="hibernate.hbm2ddl.auto">update</property>
         <property name="hibernate.connection.autocommit">true</property>
 
         <!-- none(Por defecto en Hibernate 5.2+) No realiza ninguna acción sobre el esquema.
@@ -32,6 +32,7 @@
         <!-- Entidad mapeada -->
         <mapping class="es.cursojava.hibernate.Empresa" />
         <mapping class="es.cursojava.hibernate.ejercicio1.entites.Curso"/>
+        <mapping class="es.cursojava.hibernate.ejercicio2.model.Empleado"/>
         
     </session-factory>
 </hibernate-configuration>
