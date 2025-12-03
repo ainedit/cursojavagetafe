@@ -6,7 +6,7 @@ import java.util.List;
 import es.cursojava.hibernate.ejercicio2.dto.EmpleadoDto;
 
 public interface EmpleadoService {
-    EmpleadoDto altaEmpleado(EmpleadoDto empleadoDto);
+    void altaEmpleado(EmpleadoDto empleadoDto);
 
     EmpleadoDto actualizarSalario(String nif, BigDecimal nuevoSalario);
 

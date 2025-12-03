@@ -37,7 +37,7 @@ public class Estudiante {
     @Max(90)
     private int edad;
 
-    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     // @OneToOne
     @JoinColumn(name = "FK_Carnet") // crea la foreign key en la tabla Usuario
     private CarnetBiblioteca carnetBiblioteca;
@@ -45,8 +45,17 @@ public class Estudiante {
     public Estudiante() {
 
     }
-
+    
     public Estudiante(
+			@NotNull(message = "El nombre es obligatorio") @Size(max = 50, message = "El nombre no puede tener más de 50 caracteres") String nombre,
+			String email, @Min(18) @Max(90) int edad) {
+		super();
+		this.nombre = nombre;
+		this.email = email;
+		this.edad = edad;
+	}
+
+	public Estudiante(
             @NotNull(message = "El nombre es obligatorio") @Size(max = 50, message = "El nombre no puede tener más de 50 caracteres") String nombre,
             @Min(2) @Max(30) int edad,
             String email,

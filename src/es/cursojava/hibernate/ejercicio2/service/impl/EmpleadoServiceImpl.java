@@ -19,9 +19,9 @@ public class EmpleadoServiceImpl implements EmpleadoService {
         // In a real app, this would be injected
         this.empleadoDao = new EmpleadoDaoImpl();
     }
-
+ 
     @Override
-    public EmpleadoDto altaEmpleado(EmpleadoDto dto) {
+    public void altaEmpleado(EmpleadoDto dto) {
         // Validations
         if (dto.getNif() == null || dto.getNif().trim().isEmpty()) {
             throw new BusinessException("El NIF es obligatorio.");
@@ -57,7 +57,7 @@ public class EmpleadoServiceImpl implements EmpleadoService {
         empleadoDao.commitTransaction();
         // Return DTO with ID
         dto.setId(empleado.getId());
-        return dto;
+       // return dto;
     }
 
     @Override
