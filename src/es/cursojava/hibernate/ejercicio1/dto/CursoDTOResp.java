@@ -34,6 +34,18 @@ public class CursoDTOResp {
 		this.horasTotales = horasTotales;
 		this.mensaje = mensaje;
 	}
+	
+	public CursoDTOResp(Long id, String codigo, String nombre, String descripcion, Integer horasTotales, String mensaje,
+			AulaDTO aula) {
+		super();
+		this.id = id;
+		this.codigo = codigo;
+		this.nombre = nombre;
+		this.descripcion = descripcion;
+		this.horasTotales = horasTotales;
+		this.mensaje = mensaje;
+		this.aula = aula;
+	}
 	public Long getId() {
 		return id;
 	}

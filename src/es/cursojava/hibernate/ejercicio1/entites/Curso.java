@@ -83,7 +83,7 @@ public class Curso implements Serializable {
     private LocalDateTime fechaCreacion; // obligatorio, set en PrePersist
 
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JoinColumn(name = "aula_id", unique = true)
+    @JoinColumn(name = "fk_aula", unique = true)
     private Aula aula;
     
     // Constructors

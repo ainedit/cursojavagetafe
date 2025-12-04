@@ -13,8 +13,6 @@ import es.cursojava.hibernate.ejercicio1.entites.Curso;
 
 public class CursoService {
 	
-	
-
 	public void altaCurso(CursoDTOReq cursoDTO) {
 		// Validar curso
 		if (cursoDTO.getCodigo() == null || cursoDTO.getCodigo().isEmpty() || cursoDTO.getCodigo().length() > 20) {
@@ -44,7 +42,8 @@ public class CursoService {
 		curso.setAula(aula); // Cascade.ALL se encarga de persistir el aula
 
 		cursoDAO.guardarCurso(curso);
-
+		cursoDAO.commitTransaction();
+		
 		return mapToDTO(curso);
 	}
 
@@ -67,6 +66,7 @@ public class CursoService {
 	public CursoDTOResp buscarPorId(Long id) {
 		CursoDAOImpl cursoDAOImpl = new CursoDAOImpl();
         Curso curso = cursoDAOImpl.findById(id);
+        System.out.println("Curso encontrado: " + (curso != null ? curso.getNombre() : "null"));
         if (curso == null) {
             return null;
         }
@@ -121,14 +121,17 @@ public class CursoService {
 		if (entity == null)
 			return null;
 
+		System.out.println("Mapeando curso: " + entity.getNombre());
 		AulaDTO aulaDTO = null;
 		if (entity.getAula() != null) {
 			Aula aula = entity.getAula();
 			aulaDTO = new AulaDTO(aula.getId(), aula.getCodigoAula(), aula.getCapacidad(), aula.getUbicacion());
 		}
+		
+		System.out.println("Mapeando curso2: ");
 
 		return new CursoDTOResp(entity.getId(), entity.getCodigo(), entity.getNombre(), entity.getDescripcion(),
-				entity.getHorasTotales(), null);
+				entity.getHorasTotales(), null,aulaDTO);
 	}
 
 }

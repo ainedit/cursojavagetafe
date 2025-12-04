@@ -5,6 +5,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -24,9 +25,24 @@ public class Aula {
     @Column(length = 100)
     private String ubicacion;
 
+    @OneToOne(mappedBy = "aula")
+    private Curso curso;
+    
     // Constructores
 
-    public Aula() {
+    public Curso getCurso() {
+		return curso;
+	}
+
+	public void setCurso(Curso curso) {
+		this.curso = curso;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public Aula() {
     }
 
     public Aula(String codigoAula, Integer capacidad, String ubicacion) {
