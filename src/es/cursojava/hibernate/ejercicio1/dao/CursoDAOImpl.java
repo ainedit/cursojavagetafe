@@ -8,6 +8,7 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
+import es.cursojava.hibernate.ejercicio1.entites.Aula;
 import es.cursojava.hibernate.ejercicio1.entites.Curso;
 import es.cursojava.utils.HibernateUtil;
 
@@ -69,15 +70,15 @@ public class CursoDAOImpl implements CursoDAO {
 	public List<Curso> buscarPorRangoFechaInicio(java.time.LocalDate desde, java.time.LocalDate hasta) {
 		System.out.println("Buscando cursos desde " + desde + " hasta " + hasta);
 
-		Query<Curso> query = session.createQuery("from Curso c where c.fechaInicio >= :desdeFecha and "
-				+ "c.fechaInicio <= :hastaFecha", Curso.class);
+		Query<Curso> query = session.createQuery(
+				"from Curso c where c.fechaInicio >= :desdeFecha and " + "c.fechaInicio <= :hastaFecha", Curso.class);
 		query.setParameter("desdeFecha", desde);
 		query.setParameter("hastaFecha", hasta);
-		
+
 		return query.list();
 
 	}
-	
+
 	public List<Curso> informacionPorCategoriaYFechaIncio(String categoria, LocalDate fechaInicio) {
 		System.out.println("Categoria: " + categoria + ", Fecha Inicio: " + fechaInicio);
 //		Query<Curso> query = session.createQuery(
@@ -95,34 +96,33 @@ public class CursoDAOImpl implements CursoDAO {
 	public Curso obtenerCursosPorCodigo(String codigo) {
 		Query<Curso> query = session.createQuery("from Curso c where c.codigo = :codigoCurso", Curso.class);
 		query.setParameter("codigoCurso", codigo);
-		
+
 		return query.uniqueResult();
 	}
 
 	@Override
 	public List<Curso> obtenerCursosPorCategoriaYFechaInicio(String categoria, LocalDate fechaInicio) {
-		Query<Curso> query = session.createQuery("from Curso c where c.categoria = :categoriaCurso"
-				+ " and c.fechaInicio >= :fechaInicioCurso", Curso.class);
+		Query<Curso> query = session.createQuery(
+				"from Curso c where c.categoria = :categoriaCurso" + " and c.fechaInicio >= :fechaInicioCurso",
+				Curso.class);
 		query.setParameter("categoriaCurso", categoria);
 		query.setParameter("fechaInicioCurso", fechaInicio);
-		
+
 		return query.list();
 	}
 
 	@Override
 	public List<Curso> obtenerCursosPorNivelYHorasYFechaInicio(String nivel, int numHoras, LocalDate fechaInicio) {
 		Query<Curso> query = session.createQuery("from Curso c where c.nivel = :nivelCurso"
-				+ " and c.horasTotales >= :numHorasCurso"
-				+ " and c.fechaInicio >= :fechaInicioCurso", Curso.class);
-		
+				+ " and c.horasTotales >= :numHorasCurso" + " and c.fechaInicio >= :fechaInicioCurso", Curso.class);
+
 		query.setParameter("nivelCurso", nivel);
 		query.setParameter("numHorasCurso", numHoras);
 		query.setParameter("fechaInicioCurso", fechaInicio);
-		
+
 		return query.list();
 	}
-	
-	
+
 	public List<Curso> obtenerNombreDescripcionCursos() {
 		List<Object[]> datos = session.createQuery("select c.nombre, c.descripcion from Curso c").list();
 		List<Curso> cursos = new ArrayList<>();
@@ -133,21 +133,51 @@ public class CursoDAOImpl implements CursoDAO {
 			cursos.add(curso);
 			System.out.println("Nombre: " + nombre + ", Descripcion: " + descripcion);
 		}
-		
-		
+
 		return cursos;
 	}
-	
-	
+
 	public List<Curso> obtenerNombreDescripcionCursos2() {
-		String hqlQuery = "select new "+
-				"es.cursojava.hibernate.ejercicio1.entites.Curso(c.nombre, c.descripcion ) " +
-				"from Curso c order by c.nombre asc";
-		
-		List<Curso> cursos = session.createQuery(hqlQuery,Curso.class).setMaxResults(3).list();
-		
+		String hqlQuery = "select new " + "es.cursojava.hibernate.ejercicio1.entites.Curso(c.nombre, c.descripcion ) "
+				+ "from Curso c order by c.nombre asc";
+
+		List<Curso> cursos = session.createQuery(hqlQuery, Curso.class).setMaxResults(3).list();
+
 		return cursos;
 	}
 
+	/**
+	 * Devuelve true si ya existe un curso que tenga asignada esa aula.
+	 */
+	public boolean existsCursoWithAula(Long aulaId) {
+		Long count = session.createQuery("select count(c) from Curso c where c.aula.id = :aulaId", Long.class)
+				.setParameter("aulaId", aulaId).getSingleResult();
+		return count != null && count > 0;
+	}
 
+	/**
+	 * Asigna un aula existente a un curso existente.
+	 */
+	public void asignarAula(Long cursoId, Aula aula) {
+		Curso curso = session.get(Curso.class, cursoId);
+		if (curso == null) {
+			throw new IllegalArgumentException("Curso no encontrado con id=" + cursoId);
+		}
+
+		// Adjuntamos el aula al contexto de persistencia si hace falta
+		Aula aulaManaged = aula;
+		if (!session.contains(aula)) {
+			aulaManaged = session.get(Aula.class, aula.getId());
+		}
+
+		curso.setAula(aulaManaged);
+		session.merge(curso);
+
+		transaction.commit();
+	}
+
+	 public Curso findById(Long id) {
+	            return session.get(Curso.class, id);
+	      
+	    }
 }

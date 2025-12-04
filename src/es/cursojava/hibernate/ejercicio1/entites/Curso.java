@@ -5,11 +5,15 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.PrePersist;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
@@ -78,6 +82,10 @@ public class Curso implements Serializable {
     @Column(name = "fecha_creacion", nullable = false)
     private LocalDateTime fechaCreacion; // obligatorio, set en PrePersist
 
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name = "aula_id", unique = true)
+    private Aula aula;
+    
     // Constructors
     public Curso() {
         // JPA
@@ -215,8 +223,16 @@ public class Curso implements Serializable {
     public void setFechaCreacion(LocalDateTime fechaCreacion) {
         this.fechaCreacion = fechaCreacion;
     }
+    
+    public Aula getAula() {
+		return aula;
+	}
 
-    // Validation for date consistency: fechaFin must be null or >= fechaInicio
+	public void setAula(Aula aula) {
+		this.aula = aula;
+	}
+
+	// Validation for date consistency: fechaFin must be null or >= fechaInicio
     @AssertTrue(message = "fechaFin debe ser igual o posterior a fechaInicio")
     private boolean isFechaFinValida() {
         if (fechaFin == null) {

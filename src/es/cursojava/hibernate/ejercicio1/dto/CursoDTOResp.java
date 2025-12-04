@@ -7,9 +7,16 @@ public class CursoDTOResp {
     private String descripcion; 
     private Integer horasTotales; 
     private String mensaje;
+    private AulaDTO aula;
     
     
     
+	public AulaDTO getAula() {
+		return aula;
+	}
+	public void setAula(AulaDTO aula) {
+		this.aula = aula;
+	}
 	public CursoDTOResp(Long id,  String nombre, String mensaje) {
 		super();
 		this.id = id;
