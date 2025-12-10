@@ -1,0 +1,6 @@
+Clase Alumno con los atributos id, nombre, email y edad.
+Relacion entre Curso y Alumno OneToMany Bidireccional
+
+Cargar los datos de los ficheros aulas.txt, alumnos_curso.txt y cursos_aula.txt en las tablas correspondientes 
+Mostrar en qué aula está el alumno con nombre alumno100
+     
