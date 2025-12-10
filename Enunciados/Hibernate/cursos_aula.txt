@@ -1,0 +1,11 @@
+código;nombre;descripcion;horasTotales;activo;nivel;categoria;precio;fechaInicio;fechaFin;fechaCreacion;codigo_aula
+1001;Java Básico;Introducción a la programación en Java desde cero;40;true;BASICO;PROGRAMACION;250.00;2025-01-13;2025-02-28;2024-12-01;1
+1002;Java Intermedio;Profundización en colecciones, excepciones y ficheros;50;true;INTERMEDIO;PROGRAMACION;320.00;2025-02-03;2025-03-21;2024-12-02;2
+1003;Spring Boot Inicial;Creación de APIs REST con Spring Boot;45;true;INTERMEDIO;FRAMEWORKS;350.00;2025-03-03;2025-04-11;2024-12-03;3
+1004;Bases de Datos SQL;Modelado y consultas SQL para aplicaciones Java;35;true;BASICO;BASES_DATOS;220.00;2025-01-20;2025-03-07;2024-12-04;4
+1005;HTML y CSS;Fundamentos de maquetación web moderna;30;false;BASICO;FRONTEND;180.00;2024-09-02;2024-10-11;2024-07-15;5
+1006;Java Avanzado;Programación concurrente, streams y buenas prácticas;60;true;AVANZADO;PROGRAMACION;420.00;2025-04-07;2025-05-30;2024-12-05;6
+1007;Git y DevOps Básico;Control de versiones y conceptos introductorios de CI/CD;25;true;BASICO;DEVOPS;190.00;2025-02-17;2025-03-14;2024-12-06;7
+1008;Angular para Backend Developers;Frontend SPA conectado a APIs Java;50;false;INTERMEDIO;FRONTEND;380.00;2024-10-07;2024-11-29;2024-08-20;8
+1009;Testing en Java;Pruebas unitarias e integración con JUnit y Mockito;30;true;INTERMEDIO;CALIDAD;260.00;2025-03-17;2025-04-25;2024-12-07;9
+1010;Introducción a la Programación;Algoritmia y fundamentos con pseudocódigo;40;true;BASICO;PROGRAMACION;230.00;2025-01-27;2025-03-14;2024-12-08;10

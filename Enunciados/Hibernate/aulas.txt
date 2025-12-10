@@ -1,0 +1,11 @@
+codigoAula;capacidad;ubicacion
+1;30;Edificio Norte - Planta 1
+2;25;Edificio Norte - Planta 2
+3;40;Edificio Sur - Planta Baja
+4;35;Edificio Sur - Planta 1
+5;20;Edificio Este - Planta 3
+6;28;Edificio Oeste - Planta 2
+7;32;Edificio Central - Planta 1
+8;18;Edificio Central - Planta 2
+9;45;Edificio Sur - Planta 3
+10;22;Edificio Este - Planta Baja
