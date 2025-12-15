@@ -15,6 +15,7 @@ import org.slf4j.LoggerFactory;
 public class UtilidadesFicheros {
     private static final Logger logger = LoggerFactory.getLogger(UtilidadesFicheros.class);
     public static final String SEPARADOR_PIPE = "|";
+    public static final String SEPARADOR_SEMI_COLON = ";";
 
     public static void crearDirectorios (File dirFicheros, String [] directorios){
         crearDirectorios(dirFicheros, Arrays.asList(directorios));
@@ -31,9 +32,9 @@ public class UtilidadesFicheros {
         }
     }
     
-    public static List<String> leerFichero(String ruta) throws IOException{
+    public static List<String> leerFichero(String ruta) throws IOException {
     	Path path = Paths.get(ruta);
-    	List<String> lines = Files.readAllLines(path);
+    	List<String> lines = Files.readAllLines(path); // skip(1) para omitir la cabecera
      	
     	return lines;
     }
