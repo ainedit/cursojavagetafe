@@ -3,6 +3,7 @@ package es.cursojava.hibernate.ejercicio1.dao;
 import java.time.LocalDate;
 import java.util.List;
 
+import es.cursojava.hibernate.ejercicio1.entites.Aula;
 import es.cursojava.hibernate.ejercicio1.entites.Curso;
 
 public interface CursoDAO {
@@ -26,5 +27,7 @@ public interface CursoDAO {
 	public List<Curso> obtenerCursosPorCategoriaYFechaInicio(String categoria, LocalDate fechaInicio);
 	
 	public List<Curso> obtenerCursosPorNivelYHorasYFechaInicio(String nivel,int numHoras, LocalDate fechaInicio);
+	
+	public Aula obtenerAulaPorNombreAlumno(String nomnbreAlumno);
 	
 }

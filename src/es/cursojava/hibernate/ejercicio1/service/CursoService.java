@@ -1,17 +1,56 @@
 package es.cursojava.hibernate.ejercicio1.service;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
+import java.util.Map;
 
 import es.cursojava.hibernate.ejercicio1.dao.AulaDAO;
 import es.cursojava.hibernate.ejercicio1.dao.CursoDAOImpl;
+import es.cursojava.hibernate.ejercicio1.dto.AlumnoDTO;
 import es.cursojava.hibernate.ejercicio1.dto.AulaDTO;
 import es.cursojava.hibernate.ejercicio1.dto.CursoDTOReq;
 import es.cursojava.hibernate.ejercicio1.dto.CursoDTOResp;
+import es.cursojava.hibernate.ejercicio1.entites.Alumno;
 import es.cursojava.hibernate.ejercicio1.entites.Aula;
 import es.cursojava.hibernate.ejercicio1.entites.Curso;
 
 public class CursoService {
+	
+	public void altaCursosConAulasYAlumnos(Map<String, AulaDTO> mapaAulas
+			,Map<String, CursoDTOReq> mapaCursos
+			,Map<Integer, List<AlumnoDTO>> mapaAlumnos) {
+		
+		CursoDAOImpl cursoDAO = new CursoDAOImpl();
+		Collection<CursoDTOReq> cursos = mapaCursos.values();
+		for (CursoDTOReq cursoDTOReq : cursos) {
+			//Validacion de cursoDTO
+			Curso curso = mapToEntity(cursoDTOReq);
+			//Asignar Aula
+			AulaDTO aulaDTO = mapaAulas.get(cursoDTOReq.getCodigoAula());
+			Aula aula = mapToEntity(aulaDTO);
+			curso.setAula(aula);
+			
+			//Asignar Alumnos
+			List<AlumnoDTO> listadoAlumnosDTO = mapaAlumnos.get(Integer.parseInt(cursoDTOReq.getCodigo()));
+			List<Alumno> listadoAlumnos = new ArrayList<>();
+			for (AlumnoDTO alumnoDTO : listadoAlumnosDTO) {
+				Alumno alumno = mapToEntity(alumnoDTO);
+				alumno.setCurso(curso); // Asignar el curso al alumno
+				listadoAlumnos.add(alumno);
+			}
+			curso.setAlumnos(listadoAlumnos);
+			
+			
+			cursoDAO.guardarCurso(curso);
+
+		}
+		
+		cursoDAO.commitTransaction();
+		
+	}
+	
+	
 	
 	public void altaCurso(CursoDTOReq cursoDTO) {
 		// Validar curso
@@ -117,6 +156,13 @@ public class CursoService {
 		return new Aula(dto.getCodigoAula(), dto.getCapacidad(), dto.getUbicacion());
 	}
 
+	
+	private Alumno mapToEntity(AlumnoDTO dto) {
+		if (dto == null)
+			return null;
+		return new Alumno(dto.getNombre(), dto.getEmail(), dto.getEdad());
+	}
+	
 	private CursoDTOResp mapToDTO(Curso entity) {
 		if (entity == null)
 			return null;

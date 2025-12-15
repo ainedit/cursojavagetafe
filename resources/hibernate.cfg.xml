@@ -33,9 +33,14 @@
         <mapping class="es.cursojava.hibernate.Empresa" />
         <mapping class="es.cursojava.hibernate.ejercicio1.entites.Curso"/>
         <mapping class="es.cursojava.hibernate.ejercicio1.entites.Aula"/>
+        <mapping class="es.cursojava.hibernate.ejercicio1.entites.Alumno"/>
         <mapping class="es.cursojava.hibernate.ejercicio2.model.Empleado"/>
         <mapping class="es.cursojava.hibernate.entities.CarnetBiblioteca"/>
         <mapping class="es.cursojava.hibernate.entities.Estudiante"/>
-        
+	    <mapping class="es.cursojava.hibernate.entities.Book"/>
+	    <mapping class="es.cursojava.hibernate.entities.Autor"/>
+		<mapping class="es.cursojava.hibernate.entities.Cliente"/>
+		<mapping class="es.cursojava.hibernate.entities.Pedido"/>
     </session-factory>
 </hibernate-configuration>
+

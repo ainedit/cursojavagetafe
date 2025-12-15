@@ -17,6 +17,7 @@ public class CursoDTOReq {
     private LocalDate fechaInicio; // opcional
     private LocalDate fechaFin; // opcional, si existe >= fechaInicio
     private LocalDateTime fechaCreacion; // obligatorio, set en PrePersist
+    private String codigoAula; // Nombre del aula asociada
     
 	public CursoDTOReq(String codigo, String nombre, Integer horasTotales, LocalDateTime fechaCreacion, boolean activo) {
 		super();
@@ -44,6 +45,24 @@ public class CursoDTOReq {
 		this.fechaCreacion = fechaCreacion;
 	}
 
+	public CursoDTOReq(String codigo, String nombre, String descripcion, Integer horasTotales, Boolean activo,
+			String nivel, String categoria, BigDecimal precio, LocalDate fechaInicio, LocalDate fechaFin,
+			LocalDateTime fechaCreacion,String codigoAula) {
+		super();
+		this.codigo = codigo;
+		this.nombre = nombre;
+		this.descripcion = descripcion;
+		this.horasTotales = horasTotales;
+		this.activo = activo;
+		this.nivel = nivel;
+		this.categoria = categoria;
+		this.precio = precio;
+		this.fechaInicio = fechaInicio;
+		this.fechaFin = fechaFin;
+		this.fechaCreacion = fechaCreacion;
+		this.codigoAula = codigoAula;
+	}
+	
 	public String getCodigo() {
 		return codigo;
 	}
@@ -130,6 +149,14 @@ public class CursoDTOReq {
 
 	public void setFechaCreacion(LocalDateTime fechaCreacion) {
 		this.fechaCreacion = fechaCreacion;
+	}
+
+	public String getCodigoAula() {
+		return codigoAula;
+	}
+
+	public void setCodigoAula(String codigoAula) {
+		this.codigoAula = codigoAula;
 	}
 	
 	

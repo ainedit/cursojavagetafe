@@ -8,6 +8,7 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
+import es.cursojava.hibernate.ejercicio1.entites.Alumno;
 import es.cursojava.hibernate.ejercicio1.entites.Aula;
 import es.cursojava.hibernate.ejercicio1.entites.Curso;
 import es.cursojava.utils.HibernateUtil;
@@ -180,4 +181,12 @@ public class CursoDAOImpl implements CursoDAO {
 	            return session.get(Curso.class, id);
 	      
 	    }
+
+	 @Override
+	 public Aula obtenerAulaPorNombreAlumno(String nombreAlumno) {
+		Query<Alumno> query = session.createQuery("from Alumno where nombre = :nombreAlumno", Alumno.class);
+		query.setParameter("nombreAlumno", nombreAlumno);
+			
+		return query.uniqueResult().getCurso().getAula();
+	 }
 }
