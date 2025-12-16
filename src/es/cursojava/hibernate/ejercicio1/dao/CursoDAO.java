@@ -28,6 +28,4 @@ public interface CursoDAO {
 	
 	public List<Curso> obtenerCursosPorNivelYHorasYFechaInicio(String nivel,int numHoras, LocalDate fechaInicio);
 	
-	public Aula obtenerAulaPorNombreAlumno(String nomnbreAlumno);
-	
 }

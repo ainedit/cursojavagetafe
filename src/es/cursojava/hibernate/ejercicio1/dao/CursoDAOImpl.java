@@ -177,16 +177,9 @@ public class CursoDAOImpl implements CursoDAO {
 		transaction.commit();
 	}
 
-	 public Curso findById(Long id) {
-	            return session.get(Curso.class, id);
-	      
-	    }
+	public Curso findById(Long id) {
+		return session.get(Curso.class, id);
 
-	 @Override
-	 public Aula obtenerAulaPorNombreAlumno(String nombreAlumno) {
-		Query<Alumno> query = session.createQuery("from Alumno where nombre = :nombreAlumno", Alumno.class);
-		query.setParameter("nombreAlumno", nombreAlumno);
-			
-		return query.uniqueResult().getCurso().getAula();
-	 }
+	}
+
 }

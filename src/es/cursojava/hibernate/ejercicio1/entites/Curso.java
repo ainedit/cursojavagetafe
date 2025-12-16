@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.List;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -13,6 +14,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.PrePersist;
 import jakarta.persistence.SequenceGenerator;
@@ -85,6 +87,9 @@ public class Curso implements Serializable {
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "fk_aula", unique = true)
     private Aula aula;
+    
+    @OneToMany(mappedBy = "curso", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private List<Alumno> alumnos;
     
     // Constructors
     public Curso() {
@@ -230,6 +235,16 @@ public class Curso implements Serializable {
 
 	public void setAula(Aula aula) {
 		this.aula = aula;
+	}
+
+	
+	
+	public List<Alumno> getAlumnos() {
+		return alumnos;
+	}
+
+	public void setAlumnos(List<Alumno> alumnos) {
+		this.alumnos = alumnos;
 	}
 
 	// Validation for date consistency: fechaFin must be null or >= fechaInicio
