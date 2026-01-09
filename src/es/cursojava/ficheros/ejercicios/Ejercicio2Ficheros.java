@@ -9,11 +9,14 @@ public class Ejercicio2Ficheros {
         String directorio = Utilidades.pideDatoCadena("Introduce directorio");
         File dir = new File(directorio);
         if (dir.exists() && dir.isDirectory()){
-            getFiles(dir);
+        	System.out.println("Es un directorio");
+        	showInfoFiles(dir);
+        }else {
+        	System.out.println("No es un directorio");
         }
     }
 
-    private static void getFiles(File dir) {
+    private static void showInfoFiles(File dir) {
 
         //System.out.println(dir.getPath() +"\\");
         File [] files =  dir.listFiles();

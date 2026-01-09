@@ -61,7 +61,7 @@ SELECT * FROM empleados;
 
 -- Selección de columnas específicas + alias de salida
 SELECT
-  id AS "ID",
+  id,
   nombre AS "Empleado",
   departamento AS "Depto",
   salario AS "Salario (€)"
@@ -85,7 +85,6 @@ SELECT id, nombre, fecha_alta
 FROM empleados
 WHERE fecha_alta >= DATE '2024-01-01';
 
-
 --------------------------------------------------------
 -- WHERE: varias condiciones (AND/OR)
 --------------------------------------------------------
@@ -93,8 +92,9 @@ WHERE fecha_alta >= DATE '2024-01-01';
 SELECT nombre, departamento, salario, activo
 FROM empleados
 WHERE departamento = 'IT'
-  AND salario >= 40000
-  AND activo = 'S';
+    AND salario >= 40000
+    AND activo = 'S';
+
 
 -- Ventas con comisión >= 10% o NO activos (paréntesis!)
 SELECT nombre, departamento, comision, activo
@@ -115,7 +115,7 @@ WHERE salario BETWEEN 30000 AND 40000;
 -- Búsqueda por patrón (LIKE) – nombres que empiezan por 'M'
 SELECT nombre
 FROM empleados
-WHERE nombre LIKE 'M%';
+WHERE nombre LIKE 'M%o';
 
 -- Filtrar nulos: empleados sin comisión
 SELECT nombre, comision
@@ -164,7 +164,10 @@ FETCH NEXT 5 ROWS ONLY;
 SELECT
   nombre AS "Empleado",
   salario AS "Salario Base",
+  comision AS "Comision original",
   NVL(comision, 0) AS "% Comisión",
+  (1 + NVL(comision,0)/100) AS "Interes aplicado",
+  salario * (1 + NVL(comision,0)/100) AS "Salario + Comisión (€) sin Redondeo",
   ROUND(salario * (1 + NVL(comision,0)/100), 2) AS "Salario + Comisión (€)"
 FROM empleados;
 
@@ -172,7 +175,7 @@ FROM empleados;
 SELECT
   UPPER(nombre)           AS "NOMBRE MAYÚSCULAS",
   INITCAP(departamento)   AS "Depto Title Case",
-  TO_CHAR(fecha_alta, 'YYYY-MM-DD') AS "Alta"
+  TO_CHAR(fecha_alta, 'YYYY/MM/DD') AS "Alta"
 FROM empleados;
 
 --------------------------------------------------------
@@ -180,21 +183,25 @@ FROM empleados;
 --------------------------------------------------------
 -- Métricas globales
 SELECT
-  COUNT(*)       AS total_empleados,
+  COUNT(id)       AS total_empleados,
   ROUND(AVG(salario),2) AS media_salario,
   MIN(salario)   AS min_salario,
   MAX(salario)   AS max_salario,
   SUM(NVL(comision,0)) AS suma_porcentajes_comision
 FROM empleados;
 
+
+select count(distinct departamento) from empleados;
 -- Métricas por departamento
 SELECT
   departamento,
+  activo,
   COUNT(*)                  AS n_empleados,
   ROUND(AVG(salario), 2)    AS salario_medio,
   SUM(salario)              AS masa_salarial
 FROM empleados
-GROUP BY departamento
+--WHERE departamento='IT'
+GROUP BY activo, departamento
 ORDER BY salario_medio DESC;
 
 --------------------------------------------------------
@@ -202,11 +209,11 @@ ORDER BY salario_medio DESC;
 --------------------------------------------------------
 SELECT
   departamento,
-  ROUND(AVG(salario), 2) AS salario_medio
+  ROUND(MAX(salario), 2) AS salario_max
 FROM empleados
 GROUP BY departamento
-HAVING AVG(salario) > 37000
-ORDER BY salario_medio DESC;
+HAVING MAX(salario) > 37000
+ORDER BY salario_max DESC;
 
 
 --------------------------------------------------------

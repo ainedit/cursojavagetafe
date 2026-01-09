@@ -8,6 +8,8 @@ public class TestExcepcionesPropias {
 			metodoTest();
 		} catch (GetafeException e) {
 			System.out.println(e.getMessage());
+		}finally {
+			System.out.println("Siempre");
 		}
 		System.out.println("Termina");
 	}

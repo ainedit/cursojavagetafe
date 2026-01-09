@@ -13,12 +13,12 @@ public class HibernateIndices {
         //insertarDatos(session);
         consultarDatos(session);
 
-
     }
 
     private static void insertarDatos (Session session){
         Transaction tx = session.beginTransaction();
         long start = System.currentTimeMillis();
+        long start0 = start; 
         for (int i = 0; i < 5_000_000; i++) {
             Cliente cliente = new Cliente("Nombre " + i , "usuario" + i + "@ejemplo.com");
             session.persist(cliente);
@@ -35,17 +35,21 @@ public class HibernateIndices {
                 start = System.currentTimeMillis();
             }    
         }
+        
+        long end = System.currentTimeMillis();
+        System.out.println("Tiempo total: " + (end - start0) + " ms");
+        
         tx.commit();
     }
 
     private static void consultarDatos (Session session){
         long start = System.currentTimeMillis();
 
-        String emailBusqueda = "usuario4000000@ejemplo.com";
+        String emailBusqueda = "usuario400000@ejemplo.com";
         Cliente resultado = session.createQuery("FROM Cliente WHERE email = :email", Cliente.class)
             .setParameter("email", emailBusqueda)
             .uniqueResult();
-
+        System.out.println("Cliente encontrado: " + resultado);
         long end = System.currentTimeMillis();
         System.out.println("Tiempo de búsqueda: " + (end - start) + " ms");
         session.close();

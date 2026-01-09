@@ -31,7 +31,7 @@ public class TransaccionDemo {
             String insert = "INSERT INTO EMPLEADOS VALUES (?,?,?,?,?,?,?)";
             
             java.util.Date fecha = new java.util.Date();
-            for (int i = 1; i < 99999; i++) {
+            for (int i = 1; i < 999999; i++) {
                 ps = con.prepareStatement(insert); 
                 ps.setInt(1, i);
                 ps.setString(2, "Nombre "+i);

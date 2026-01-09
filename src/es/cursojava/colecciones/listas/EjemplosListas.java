@@ -20,6 +20,11 @@ public class EjemplosListas {
 			//System.out.println(aniadido);
 		}
 		
+		for (Persona persona : lista) {
+			System.out.println(persona.getDni());
+		}
+		
+		
 		Persona p1 = new Persona("11A");
 		//lista.add(p1);//Lo añade el último
 		//lista.addLast(p1);
@@ -49,6 +54,11 @@ public class EjemplosListas {
 			System.out.println(persona.getDni());
 		}
 		
+		for (Persona persona : lista) {
+			if(persona.getDni().equals("123123")) {
+				
+			}
+		}
 		
 		
 	}

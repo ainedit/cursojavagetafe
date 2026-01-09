@@ -10,6 +10,8 @@ public class EjemplosSet {
 
 	public static void main(String[] args) {
 		Set<Persona> conjunto = new LinkedHashSet();
+		conjunto.add(null);
+		System.out.println(conjunto.size());
 //		lista.add("Amarillo");
 //		lista.add(100.5);
 		Persona p = new Persona();

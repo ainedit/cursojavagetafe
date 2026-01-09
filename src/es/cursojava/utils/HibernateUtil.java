@@ -8,6 +8,10 @@ public class HibernateUtil {
 
 	private static Session session;
 	
+	public static void main(String[] args) {
+		getSession();
+	}
+	
 	private static Session getSession() {
 		SessionFactory sessionFactory = new Configuration()
                 .configure() // Carga hibernate.cfg.xml

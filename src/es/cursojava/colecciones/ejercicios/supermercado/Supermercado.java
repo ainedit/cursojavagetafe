@@ -14,8 +14,8 @@ import es.cursojava.interfaces.ejercicios.produtovehiculos.pojos.productos.Tarta
 
 public class Supermercado {
 	private String nombre;
-	List<List<Alimentos>> stockAlimentos; 
-	Set<ClienteSupermercado> clientes;
+	private List<List<Alimentos>> stockAlimentos; 
+	private Set<ClienteSupermercado> clientes;
 	
 	public Supermercado(String nombre) {
 		super();

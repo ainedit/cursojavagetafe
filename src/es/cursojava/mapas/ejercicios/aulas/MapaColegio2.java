@@ -2,12 +2,15 @@ package es.cursojava.mapas.ejercicios.aulas;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import ch.qos.logback.core.recovery.ResilientSyslogOutputStream;
 import es.cursojava.oo.Alumno;
+import es.cursojava.oo.Persona;
 
 public class MapaColegio2 {
 
@@ -50,8 +53,42 @@ public class MapaColegio2 {
 		//System.out.println(colegio2.getAulas().get("aula2").size());
 
 		
-		mostrarDatosColegios(colegios);
+		//mostrarDatosColegios(colegios);
+		mostrarColegioNotaMediaMayor(colegios);
+		
+		
 	}
+	
+	private static void mostrarColegioNotaMediaMayor(List<Colegio> colegios) {
+		double notaMediaMaxima = 0;
+		Colegio mejorColegio= null;
+		for (Colegio colegio : colegios) {
+			double notaMediaColegio = 0;
+			int contadorAlumnos= 0;
+			System.out.println(colegio.getNombre());
+			Map<String,List<Alumno>> aulas = colegio.getAulas();
+			Collection<List<Alumno>> listadosAlumnos = aulas.values();
+			for (List<Alumno> alumnos : listadosAlumnos) {
+				for (Alumno alumno : alumnos) {
+					//System.out.println(alumno);
+					notaMediaColegio+=alumno.getNotaMedia();
+					contadorAlumnos++;
+				}
+			}
+			notaMediaColegio = notaMediaColegio/contadorAlumnos;
+			System.out.println(notaMediaColegio);
+			if (notaMediaColegio>notaMediaMaxima) {
+				notaMediaMaxima = notaMediaColegio;
+				mejorColegio = colegio;
+			}
+			
+		}
+		System.out.println(mejorColegio.getNombre() +" tiene la nota media más alta");
+		
+		
+	}
+	
+	
 	
 	private static void mostrarDatosColegios (List<Colegio> colegios) {
 		

@@ -10,6 +10,7 @@ import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Index;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
@@ -28,9 +29,9 @@ import jakarta.persistence.Table;
  */
 
 @Entity
-// @Table(name = "TB_CLIENTES_IDX", indexes = {
+//@Table(name = "TB_CLIENTES_IDX", indexes = {
 //      @Index(name = "idx_email", columnList = "email")
-// })
+//})
 @Table(name = "TB_CLIENTES")
 public class Cliente {
     @Id

@@ -18,6 +18,10 @@ public class Alumno {
 		
 	}
 	
+	public Alumno(String nombre) {
+		this.nombre = nombre;
+	}
+	
 	public Alumno(String nombre, String dni) {
 		this.nombre = nombre;
 		this.dni = dni;

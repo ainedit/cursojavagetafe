@@ -25,11 +25,7 @@ Inserta 3 empleados.
 Asigna credencial a 2 de ellos; deja 1 sin credencial.
 
 Consultas
-
 a) Lista solo los empleados con credencial
-
 b) Lista todos los empleados y su credencial si existe 
-
 c) Empleados sin credencial 
-
 d) Comprobación de unicidad: intenta insertar una credencial con un RFID_CODE duplicado y observa el error de restricción.

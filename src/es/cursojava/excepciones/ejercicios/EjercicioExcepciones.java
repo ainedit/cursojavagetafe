@@ -1,14 +1,16 @@
 package es.cursojava.excepciones.ejercicios;
 
+import es.cursojava.excepciones.GetafeException;
 import es.cursojava.utils.Utilidades;
 
 public class EjercicioExcepciones {
 
 	public static void main(String[] args) {
+//		int numeros[] = crearArray();
+//		rellenarArray(numeros);
+//		muestraPosicion(numeros);
 		
-		int numeros[] = crearArray();
-		rellenarArray(numeros);
-		muestraPosicion(numeros);
+			
 	}
 
 	private static void multiplica (int numero) {

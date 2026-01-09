@@ -1,6 +1,6 @@
 package es.cursojava.oo.herencia;
 
-public class Lobo extends Animal{
+public final class Lobo extends Animal{
 	private int numColmillos;
 
 	public Lobo(String nombre, double peso, long identificador) {

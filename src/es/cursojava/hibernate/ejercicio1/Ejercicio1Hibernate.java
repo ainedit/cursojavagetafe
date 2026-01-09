@@ -14,7 +14,7 @@ import es.cursojava.utils.UtilidadesFicheros;
 
 public class Ejercicio1Hibernate {
 
-	public static void main(String[] args) {
+	public static void main2(String[] args) {
 		//insertarCursos(generarCursosDesdeFichero());
 		//mostrarCursosPorNombre();
 		//mostrarCursosActivos();
@@ -23,6 +23,21 @@ public class Ejercicio1Hibernate {
 //		obtenerCursoPorId();
 		filtrarPorFechas();
 		
+	}
+	
+	
+	public static void main(String[] args) {
+//		insertarCursos();
+		// listarCursos();
+//		obtenerCursoPorId();
+		CursoDAOImpl cursoDAO = new CursoDAOImpl();
+		//cursoDAO.commitTransaction();
+		LocalDate fechaInicio = LocalDate.of(2025, 1, 1);
+		List<Curso > cursos= cursoDAO.informacionPorCategoriaYFechaIncio("Programación", fechaInicio);
+		for (Curso curso : cursos) {
+			System.out.println("Curso encontrado: "+curso.getCodigo()+" - "+curso.getNombre());
+		}
+//		cursoDAO.informacionPorNivelYHorasYFechainicio("Básico", 40, fechaInicio);
 	}
 	
 	public static void filtrarPorFechas() {
@@ -39,6 +54,8 @@ public class Ejercicio1Hibernate {
         // Mostrar resultados
         System.out.println("Cursos con fecha de inicio entre " + fechaDesde + " y " + fechaHasta + ":");
         cursos.forEach(System.out::println);
+        cursos.forEach(curso -> System.out.println("Curso encontrado: "+curso.getCodigo()+" - "+curso.getNombre()));
+        
     }
 	
 	private static void mostrarCursosActivos () {
