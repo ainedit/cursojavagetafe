@@ -1,6 +1,8 @@
 package es.cursojava.hibernate.ejercicio1.service;
 
 import es.cursojava.hibernate.ejercicio1.dao.AlumnoDAO;
+import es.cursojava.hibernate.ejercicio1.dto.AlumnoDTO;
+import es.cursojava.hibernate.ejercicio1.entites.Alumno;
 
 public class AlumnoService {
 	
@@ -19,6 +21,28 @@ public class AlumnoService {
 		//return alumnoDAO.obtenerAulaPorNombreAlumno(nombreAlumno).getCodigoAula();
 		
 		return alumnoDAO.obtenerCodigoAulaPorNombreAlumno(nombreAlumno);
+	}
+	
+	public AlumnoDTO altaAlumnoService(AlumnoDTO alumnoDTO) {
+		if (alumnoDTO == null) {
+			throw new IllegalArgumentException("El objeto AlumnoDTO no puede ser nulo.");
+		}
+		if (alumnoDTO.getNombre() == null || alumnoDTO.getNombre().isEmpty()) {
+			throw new IllegalArgumentException("El nombre del alumno no puede ser nulo o vacío.");
+		}
+		if (alumnoDTO.getEmail() == null || alumnoDTO.getEmail().isEmpty ()) {
+			throw new IllegalArgumentException("El email del alumno no puede ser nulo o vacío.");
+		}	
+		if (alumnoDTO.getEdad() <= 0) {
+			throw new IllegalArgumentException("La edad del alumno debe ser un número positivo.");
+		}
+		AlumnoDAO alumnoDAO = new AlumnoDAO();
+		
+		Alumno alumno = new Alumno(alumnoDTO.getNombre(), alumnoDTO.getEmail(), alumnoDTO.getEdad());
+		
+		alumnoDAO.guardarAlumno(alumno);
+		
+		return alumnoDTO;
 	}
 
 }

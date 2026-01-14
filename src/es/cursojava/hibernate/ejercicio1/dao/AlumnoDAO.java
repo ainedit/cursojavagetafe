@@ -33,4 +33,12 @@ public class AlumnoDAO {
 
 		return query.uniqueResult();
 	}
+	
+	
+	public void guardarAlumno(Alumno alumno) {
+		//transaction.begin();
+		session.persist(alumno);
+		session.flush();
+		transaction.commit();
+	}
 }

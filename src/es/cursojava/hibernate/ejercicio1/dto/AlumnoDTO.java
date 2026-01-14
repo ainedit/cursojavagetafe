@@ -16,6 +16,13 @@ public class AlumnoDTO  {
 		this.edad = edad;
 		this.codigo_curso = codigo_curso;
 	}
+	
+	public AlumnoDTO(String nombre, String email, int edad) {
+		super();
+		this.nombre = nombre;
+		this.email = email;
+		this.edad = edad;
+	}
 
 	public Long getId() {
 		return id;
