@@ -1,5 +1,8 @@
 package es.cursojava.hibernate.ejercicio1.service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import es.cursojava.hibernate.ejercicio1.dao.AlumnoDAO;
 import es.cursojava.hibernate.ejercicio1.dto.AlumnoDTO;
 import es.cursojava.hibernate.ejercicio1.entites.Alumno;
@@ -43,6 +46,19 @@ public class AlumnoService {
 		alumnoDAO.guardarAlumno(alumno);
 		
 		return alumnoDTO;
+	}
+	
+	
+	public List<AlumnoDTO> obtenerTodosAlumnos() {
+		AlumnoDAO alumnoDAO = new AlumnoDAO();
+		List<Alumno> alumnos = alumnoDAO.obtenerTodosAlumnos();
+		
+		List<AlumnoDTO> alumnoDTOs = new ArrayList<>();
+		for (Alumno alumno : alumnos) {
+			AlumnoDTO alumnoDTO = new AlumnoDTO(alumno.getNombre(), alumno.getEmail(), alumno.getEdad());
+			alumnoDTOs.add(alumnoDTO);
+		}
+		return alumnoDTOs;
 	}
 
 }

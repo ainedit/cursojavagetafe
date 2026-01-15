@@ -1,5 +1,7 @@
 package es.cursojava.hibernate.ejercicio1.dao;
 
+import java.util.List;
+
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
@@ -40,5 +42,12 @@ public class AlumnoDAO {
 		session.persist(alumno);
 		session.flush();
 		transaction.commit();
+	}
+	
+	public List<Alumno> obtenerTodosAlumnos() {
+		Query<Alumno> query = session.createQuery("from Alumno", Alumno.class);
+		List<Alumno> alumnos = query.getResultList();
+		
+		return alumnos;
 	}
 }
