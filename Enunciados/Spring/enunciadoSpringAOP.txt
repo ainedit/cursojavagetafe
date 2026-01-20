@@ -1,0 +1,17 @@
+ENUNCIADO DEL EJERCICIO: CONTROL DE ACCESO A LA CALCULADORA CON SPRING AOP
+
+Desarrolla una aplicación en Java utilizando Spring Core y Spring AOP que amplíe una calculadora previamente implementada incorporando un control de acceso basado en usuarios.
+
+La aplicación debe incluir una clase Usuario que contenga, al menos, los atributos nombre y rol, donde el rol puede tomar valores como "ADMIN" o "USER".
+
+Debe existir un servicio llamado CalculadoraService que ofrezca un método calcular(double a, double b, String operador), encargado de realizar operaciones matemáticas básicas.
+
+El acceso al método calcular debe estar restringido de la siguiente manera: únicamente los usuarios con rol ADMIN pueden ejecutar dicho método. Si un usuario que no sea ADMIN intenta ejecutar el método, este no debe llegar a ejecutarse y debe lanzarse una excepción de seguridad o mostrarse un mensaje claro indicando que el acceso está denegado.
+
+Este control de permisos no puede implementarse mediante condiciones dentro del propio CalculadoraService. La lógica de autorización debe implementarse exclusivamente mediante programación orientada a aspectos (AOP), utilizando Spring AOP.
+
+Para ello, se debe definir un Aspect que intercepte la ejecución del método calcular. Opcionalmente, se puede crear una anotación personalizada (por ejemplo, @SoloAdmin) para marcar los métodos protegidos.
+
+La aplicación debe configurarse mediante anotaciones y debe incluir una clase principal desde la que se pruebe el funcionamiento del sistema, demostrando al menos dos casos: un usuario con rol ADMIN que puede realizar cálculos correctamente y un usuario con rol USER que intenta realizar un cálculo y es bloqueado por el Aspect.
+
+El objetivo del ejercicio es comprender cómo aplicar reglas transversales de seguridad mediante AOP, manteniendo separada la lógica de negocio del control de acceso.
