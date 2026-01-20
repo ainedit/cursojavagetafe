@@ -22,7 +22,7 @@ public class MainCalculadora {
 			
 			CalculadoraService2 calc2 = ctx.getBean(CalculadoraService2.class);
 			
-			System.out.println(calc2.calcular("^",7.0,3.0));
+			System.out.println(calc2.calcular("^",2.0,3.0));
 			
 			
 			
