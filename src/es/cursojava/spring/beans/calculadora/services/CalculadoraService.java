@@ -3,6 +3,7 @@ package es.cursojava.spring.beans.calculadora.services;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import es.cursojava.spring.beans.Usuario;
 import es.cursojava.spring.beans.calculadora.beans.Divide;
 import es.cursojava.spring.beans.calculadora.beans.Multiplica;
 import es.cursojava.spring.beans.calculadora.beans.Resta;
@@ -20,6 +21,8 @@ public class CalculadoraService {
 	private Multiplica multiply;
 	@Autowired
 	private Divide divide;
+	@Autowired
+	private Usuario usuario;
 	
 //	public CalculadoraService(@Qualifier("suma") Suma suma, 
 //							@Qualifier("resta") Resta resta, 
@@ -53,5 +56,15 @@ public class CalculadoraService {
 
 		return resultado;
 	}
+
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+	
+	
 	
 }
