@@ -11,6 +11,10 @@ public class Usuario {
 	@Value("ADMIN")
 	private String rol;
 	
+	public Usuario() {
+		System.out.println("Usuario creado");
+	}
+	
 	public String getNombre() {
 		return nombre;
 	}
